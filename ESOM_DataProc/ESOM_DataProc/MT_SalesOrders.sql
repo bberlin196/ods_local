@@ -1,5 +1,5 @@
 select
-	top 10
+	top 1
 	/*ds not null*/
 	orderid,  
 	/* nullable  ????  what to do?  */
