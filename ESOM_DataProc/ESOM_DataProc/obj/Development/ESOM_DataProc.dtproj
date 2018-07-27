@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">BORISPC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5rbBoh306kmkECVptTjEgAAAAAACAAAAAAADZgAAwAAAABAAAABWbR9iBJ32Q9wBODxrf006AAAAAASAAACgAAAAEAAAAD9s1+1kITN8brHiSeLUUDGIAAAAnc5yIv3/xyJWjiuppmt04yM+QTyt4JP2QPq91n6BhsAuGP3LEtEtNVHgtdHI8AYJIO9vl+UA6eRF8AnDt9J8bd9S3XI31aIMTJRtI9rvEqlOACxJwGLrKZcK6KTjZMFJqwjZKaKjbJL0qEV+maDE+G+XPkVSu9fbZ2RBueNFBBAZtmoBjq9G5RQAAAB9MCgr6NPgxXwptnzKG2ziMlqPYQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5rbBoh306kmkECVptTjEgAAAAAACAAAAAAADZgAAwAAAABAAAABGeo9TjW+AkL8YiHRzEoQhAAAAAASAAACgAAAAEAAAAIVnS0TRM//OvB9ywSEaPCKIAAAAFAAt2sJ000l592hOKJSSRThjEu9in+cT+89tD80n57570OJXRcHDFWCw7mavZc0ulcutrPi5wDlLGds65tjueKRS8bqdd6sCdSg2rPz6fzoEH1bQPeQZYz95Zt1w/yHCki0EyGUz4HG5ahfThnD952I+VkW/dIqJ+nsdv+3SbaNFaMsiOIU29xQAAADsZY0uMk3ooayrBa21UlMYYrf96g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -201,8 +201,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -217,8 +215,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -277,8 +273,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -308,8 +302,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -454,10 +446,10 @@
                 <SSIS:Property SSIS:Name="Name">DW_SalesOrders</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">200</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">213</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{5D0F45B3-46E8-41CB-848C-0D3C4A030AA3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B1DF9319-9DF9-4281-9BC8-C2A15219933C}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="bi01.lax01.mtsvc.net.mtbiODS.biadmin"
+  DTS:DTSID="{C3BDDD43-3606-42EF-AE92-46ADBE7D4E4A}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=bi01.lax01.mtsvc.net;User ID=biadmin;Initial Catalog=mtbiODS;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5rbBoh306kmkECVptTjEgAAAAAACAAAAAAADZgAAwAAAABAAAABFkJHnqSAcbEOM8zlh+kJwAAAAAASAAACgAAAAEAAAAHd6RpdPS7yehOiPglZxbG+AAAAAKIDgNFrW+2yN8vEAsg1WDiiWEF3rGG0ofP7SM4ynr/QE1uYcXrnAJAwD+MXvIIwVqAcFgQCxhPwPLaWnOQNlJcuhuW2L03SUf3/ou2/KUpDBNA0t47tSDqTjA/QKjljqSfgQNiP5Hk+ZEvqRrd7LNYhRgvvIm/ux9ubEUMfUms0UAAAA5izDZzXv/kn2xvhQXS/C1BbHU/0=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
