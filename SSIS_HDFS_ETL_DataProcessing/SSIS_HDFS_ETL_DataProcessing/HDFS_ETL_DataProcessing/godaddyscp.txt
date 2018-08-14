@@ -1,0 +1,3 @@
+option confirm off
+open sftp://gdbisftp:bisftp01.lax01.mtsvc.net/ -privatekey="C:\keys\bi_private.ppk" -passphrase="this is sparta!!"
+put "C:\Cubes\Source Data\OrdersCube.txt" "ordercube.txt"

@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "HDFS_ETL_DataProcessing", "HDFS_ETL_DataProcessing\HDFS_ETL_DataProcessing.dtproj", "{ACB79CE6-9F89-4CBE-B3C3-908A3CCE560F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E906D9E5-1A52-4FB2-A744-E71EDD22A97C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACB79CE6-9F89-4CBE-B3C3-908A3CCE560F}.Development|Default.ActiveCfg = Development
+		{ACB79CE6-9F89-4CBE-B3C3-908A3CCE560F}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

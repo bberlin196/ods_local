@@ -1,0 +1,1644 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/22/2016 2:54:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RU2NSSLL7HS"
+  DTS:CreatorName="WIN-RU2NSSLL7HS\Administrator"
+  DTS:DTSID="{78F28336-DB03-411E-A1AC-AEF897EB1898}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="MediatempleAssistedMigrationQueueHistory"
+  DTS:PackageType="5"
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{DEC3BB39-08BA-4BE3-ABE7-E5B033507CB6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archive_mediatempleAssistedMigrationQueueHistory_20160328.txt.zip]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{18C527D3-306E-4EB2-AD31-D7E7F774FBDB}"
+      DTS:ObjectName="Archive_mediatempleAssistedMigrationQueueHistory_20160328.txt.zip">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"C:\\HDFS_Stage\\archive\\MediatempleAssistedMigrationQueueHistory_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) +
+RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + 
+RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".txt.zip"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\HDFS_Stage\archive\MediatempleAssistedMigrationQueueHistory_20171114.txt.zip" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[mediatempleAssistedMigrationQueueHistory.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{3E02CD85-F023-4498-9B15-9EECA933B0E9}"
+      DTS:ObjectName="mediatempleAssistedMigrationQueueHistory.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\HDFS_Stage\data\mediatempleAssistedMigrationQueueHistory.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[mediatempleAssistedMigrationQueueHistory.txt.zip]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{5E87247F-CAEA-4D48-B07A-848A46D28DCD}"
+      DTS:ObjectName="mediatempleAssistedMigrationQueueHistory.txt.zip">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\HDFS_Stage\data\mediatempleAssistedMigrationQueueHistory.txt.zip" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[mediatempleAssistedMigrationQueueHistory_In.txt]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="mediatempleAssistedMigrationQueueHistory_In.txt"
+      DTS:DTSID="{BB67F4B3-5DED-4296-8FFF-A28D86E78682}"
+      DTS:ObjectName="mediatempleAssistedMigrationQueueHistory_In.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\HDFS_Stage\data\mediatempleAssistedMigrationQueueHistory_In.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{A5B5DD32-F16A-4545-B1E6-29F8D1C95EA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="migration_id"
+              DTS:DTSID="{678B0A3F-18AC-4F00-9D44-00A0DE96041E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="old_status"
+              DTS:DTSID="{19617499-1271-4F07-A76A-E398BB081018}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="status"
+              DTS:DTSID="{08E15B40-941C-45B8-8FB3-B16FDE497D28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="updated_on"
+              DTS:DTSID="{3F33CDDE-0B8C-43E8-9444-95A6556257C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="created_on"
+              DTS:DTSID="{0A25B850-1985-4904-BEC2-FD62C1734F15}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="25"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rec_datetime_stamp"
+              DTS:DTSID="{0AA3B2B1-6832-480B-BD29-EE0D01F1314D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="old_status_created_on"
+              DTS:DTSID="{CB1117C3-0002-44BB-B207-949E1A34DA78}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{82333BE7-A4B3-455D-BF8F-BB40E25553CF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="var_hdfs_data_file_name">
+      <DTS:VariableValue
+        DTS:DataType="8">MediatempleAssistedMigrationQueueHistory</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AB6E24EF-A938-429F-B089-CFB36CDD7C7F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="var_split">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Dump the data to the HDFS file"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5BB463D7-5151-4C4A-A688-83127B0878D1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dump the data to the HDFS file"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dump the data to the HDFS file\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dump the data to the HDFS file\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[mediatempleAssistedMigrationQueueHistory_In.txt]"
+                  connectionManagerRefId="Package.ConnectionManagers[mediatempleAssistedMigrationQueueHistory_In.txt]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[id]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[migration_id]"
+                      cachedDataType="i4"
+                      cachedName="migration_id"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[migration_id]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[migration_id]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[old_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="old_status"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[old_status]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[old_status]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="status"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[status]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[updated_on]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="updated_on"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[updated_on]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[updated_on]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[created_on]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="created_on"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[created_on]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[created_on]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[rec_datetime_stamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="rec_datetime_stamp"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rec_datetime_stamp]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_datetime_stamp]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[old_status_created_on]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="old_status_created_on"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[old_status_created_on]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[old_status_created_on]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[migration_id]"
+                      dataType="i4"
+                      name="migration_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[old_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="old_status" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[updated_on]"
+                      dataType="dbTimeStamp"
+                      name="updated_on" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[created_on]"
+                      dataType="dbTimeStamp"
+                      name="created_on" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rec_datetime_stamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="rec_datetime_stamp" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[old_status_created_on]"
+                      dataType="dbTimeStamp"
+                      name="old_status_created_on" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Dump the data to the HDFS file\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+       [id]
+      ,[migration_id]
+,replace(replace([old_status],char(10),';'),'`',',')  as  [old_status]
+,replace(replace([status],char(10),';'),'`',',')  as  [status]
+      ,[updated_on]
+      ,[created_on]
+     ,convert(varchar(25), getdate(), 120) as rec_datetime_stamp,
+    old_status_created_on
+  FROM [HostOps].[dbo].[mediatempleAssistedMigrationQueueHistory]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dump the data to the HDFS file\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{E21EDABD-D92B-444C-B6CF-8AFF6E2F2E71}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[bi01.lax01.mtsvc.net.HostOps.biadmin]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[migration_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[migration_id]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[migration_id]"
+                      name="migration_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[old_status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[old_status]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[old_status]"
+                      name="old_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]"
+                      name="status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[updated_on]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[updated_on]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[updated_on]"
+                      name="updated_on"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[created_on]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[created_on]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[created_on]"
+                      name="created_on"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_datetime_stamp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rec_datetime_stamp]"
+                      length="25"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_datetime_stamp]"
+                      name="rec_datetime_stamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[old_status_created_on]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[old_status_created_on]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[old_status_created_on]"
+                      name="old_status_created_on"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[migration_id]"
+                      dataType="i4"
+                      name="migration_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[old_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="old_status" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[updated_on]"
+                      dataType="dbTimeStamp"
+                      name="updated_on" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[created_on]"
+                      dataType="dbTimeStamp"
+                      name="created_on" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rec_datetime_stamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="rec_datetime_stamp" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[old_status_created_on]"
+                      dataType="dbTimeStamp"
+                      name="old_status_created_on" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[migration_id]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[migration_id]"
+                      name="migration_id" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[old_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[old_status]"
+                      name="old_status" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                      name="status" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[updated_on]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[updated_on]"
+                      name="updated_on" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[created_on]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[created_on]"
+                      name="created_on" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rec_datetime_stamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rec_datetime_stamp]"
+                      name="rec_datetime_stamp" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[old_status_created_on]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[old_status_created_on]"
+                      name="old_status_created_on" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dump the data to the HDFS file.Paths[OLE DB Source Output]"
+              endId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move the HDFS Data File to archive"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{B7E0B9B8-1E67-4D2D-8286-3A0FC8EA77DB}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move the HDFS Data File to archive"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{5E87247F-CAEA-4D48-B07A-848A46D28DCD}"
+          TaskDestinationPath="{18C527D3-306E-4EB2-AD31-D7E7F774FBDB}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove the Source File"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{11DFFDBF-AD32-4C8F-984E-FED0E29CACD0}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove the Source File"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{3E02CD85-F023-4498-9B15-9EECA933B0E9}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove the Source File  - IN"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{B36B8FF8-12AC-415E-A017-A7338CFFB28E}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove the Source File  - IN"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{BB67F4B3-5DED-4296-8FFF-A28D86E78682}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove the Zipped Data"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{C2A719AA-7C10-45F5-A74D-AA751B4620C8}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove the Zipped Data"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{5E87247F-CAEA-4D48-B07A-848A46D28DCD}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Script Task - UTF8"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{E4521DDE-3EDC-4D8E-8F3C-805DA68E2746}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Script Task - UTF8"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_36a2247f978a49898f4f609ffd890c10"
+          VSTAMajorVersion="3"
+          VSTAMinorVersion="0"
+          Language="CSharp">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Text;
+using System.IO;
+#endregion
+
+namespace ST_78ee1ae200ad47beacb2583233dfd67f
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            string fileIn = @"C:\HDFS_Stage\data\mediatempleAssistedMigrationQueueHistory_In.txt";
+            string fileOut = @"C:\HDFS_Stage\data\mediatempleAssistedMigrationQueueHistory.txt";
+
+            Encoding utf8WithoutBom = new System.Text.UTF8Encoding(false);
+            Encoding un1 = new System.Text.UnicodeEncoding();
+
+            try
+            {
+                using (StreamReader sR = new StreamReader(fileIn, un1))
+                {
+                    using (StreamWriter sW = new StreamWriter(fileOut, false, utf8WithoutBom))
+                    {
+
+                        while (sR.Peek() != -1) // stops when it reachs the end of the file
+                        {
+                            sW.WriteLine(sR.ReadLine()); // writing the edited line as a new line in the new.txt file
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Dts.Events.FireError(0, null,
+                string.Format("Error {0} in UF8 Task Script using file: {1}", e, fileIn), null, 0);
+                Dts.TaskResult = (int)DTSExecResult.Failure;
+            }
+
+			Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ST_36a2247f978a49898f4f609ffd890c10.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{573E2902-564E-41CA-9D54-FA1038C5BF40}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_78ee1ae200ad47beacb2583233dfd67f</RootNamespace>
+    <AssemblyName>ST_36a2247f978a49898f4f609ffd890c10</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="#HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\InstallDir#\devenv.exe" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST120</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:Language>msBuild</msb:Language>
+		<msb:CodeName>ST_78ee1ae200ad47beacb2583233dfd67f</msb:CodeName>
+		<msb:DisplayName>ST_78ee1ae200ad47beacb2583233dfd67f</msb:DisplayName>
+		<msb:ProjectId>{062F4CD9-4283-4A06-B7D8-2986DF97DA4E}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="ST_36a2247f978a49898f4f609ffd890c10.csproj"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="ScriptMain.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Settings.get_Default():ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Sett" +
+    "ings")]
+
+namespace ST_78ee1ae200ad47beacb2583233dfd67f.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_78ee1ae200ad47beacb2583233dfd67f")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_78ee1ae200ad47beacb2583233dfd67f")]
+[assembly: AssemblyCopyright("Copyright @  2016")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_78ee1ae200ad47beacb2583233dfd67f.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_36a2247f978a49898f4f609ffd890c10.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDABMG+lYAAAAAAAAAAOAAAiELAQsAABIAAAAIAAAAAAAAvjAA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAHAwAABLAAAAAEAAAAgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAxBAAAAAgAAAAEgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAAgEAAAAQAAAAAYAAAAUAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACg
+MAAAAAAAAEgAAAACAAUAWCIAABgOAAABAAAAAAAAAKAhAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKA4AAAoqEzACAC0AAAABAAARfgEAAAQtIHIBAABw0AIA
+AAIoDwAACm8QAAAKcxEAAAoKBoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKi5zBgAA
+BoADAAAEKh4CKBQAAAoqABswBgCjAAAAAgAAEXJzAABwCnL6AABwCxZzFgAACgxzFwAACg0GCXMY
+AAAKEwQHFghzGQAAChMFKw4RBREEbxoAAApvGwAAChEEbxwAAAoVM+jeDBEFLAcRBW8dAAAK3N4M
+EQQsBxEEbx0AAArc3jITBgIoHgAACm8fAAAKFhRyegEAcBEGBiggAAAKFBZvIQAACiYCKB4AAAoX
+byIAAAreAAIoHgAAChZvIgAACioAASgAAAIALAAcSAAMAAAAAAIAIgA0VgAMAAAAAAAAGQBLZAAy
+JgAAAR4CKCMAAAoqAAAAALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJj
+ZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJs
+aWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291
+cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAA
+AAAFAGwAAAAMBAAAI34AAHgEAAAwBgAAI1N0cmluZ3MAAAAAqAoAANQBAAAjVVMAfAwAABAAAAAj
+R1VJRAAAAIwMAACMAQAAI0Jsb2IAAAAAAAAAAgAAAVcdogEJAwAAAPolMwAWAAABAAAAJgAAAAUA
+AAAGAAAACQAAAAEAAAAjAAAAAgAAAA8AAAACAAAAAgAAAAMAAAAEAAAAAQAAAAMAAAABAAAAAQAA
+AAAACgABAAAAAAAGAMEAugAKAN0AyAAOAD0BFAEGAFkBugAGAG8BXgEGAKABiwEGAFcCPQIGAIIC
+cAIGAJkCcAIGALYCcAIGANUCcAIGAO4CcAIGAAcDcAIGACIDcAIGAD0DcAIGAFYDcAIGAI8DbwMG
+AK8DbwMGAAQE8QMGACEEugAGACYEugAGAEoEcAIKAHYEYAQKAI8EYAQGAKQEbwMOAMYEFAEGAPQE
+6AQGAAEF6AQGABsFEQUGACgF6AQGADEFEQUGAD4FEQUGAFIFEQUGAGwFugAOAIAFFAEOAJoFFAEG
+ALkFugAGAOAFugAAAAAAAQAAAAAAAQABAAAAEAAyADwABQABAAEAAAEQAGsAPAAJAAMABQABABAA
+dAB/AA0ABAAIAAMBAACjAAAAEQAEAAoAEQB/ARMAEQCsARcAEQD2ATkABgYfAkcAVoAnAkoAVoAv
+AkoAUCAAAAAAgxi8ARsAAQBYIAAAAACTCMIBHwABAJEgAAAAAJMI1gEkAAEAmCAAAAAAkwjiASkA
+AQCgIAAAAACWCAYCPQACALMgAAAAAIYYvAEbAAIApyAAAAAAkRi/BIkAAgC8IAAAAACGABoCGwAC
+AJQhAAAAAIYYvAEbAAIAAAABADcCOQC8AVgAQQC8AVgASQC8AVgAUQC8AVgAWQC8AVgAYQC8AVgA
+aQC8AVgAcQC8AVgAeQC8AVgAgQC8AVgAiQC8AV0AkQC8ARsAmQC8ARsACQC8ARsAoQA4BGIAoQBT
+BGkAKQC8AW4AuQC8AXoAyQC8ARsAEQC8ARsA0QC8ARsA2QC8AY0A4QC8ARsA6QC8AZIA+QC8AZkA
+AQFJBaEACQFdBVgAAQFnBaUAEQF4BRsAGQCSBakAGQGuBa8AKQHABbUAIQHHBbwAGQHRBV0AGQC8
+ARsACAAUAE4ACAAYAFMAKQCTAIAALgAbAEYBLgAjAEYBLgBjAGwBLgALANUALgATAB0BLgAzAB0B
+LgArAEYBLgA7AEwBLgBDAEYBLgBbAGMBQwBrAFMASQCTAIAAYQCbAFMAgwCrAFMAdQDFAAIAAQAD
+AAMAAABvAS8AAADuATQAAAASAkIAAgACAAMAAgADAAUAAQAEAAUAAgAFAAcABIAAAAEAAAArF8mQ
+AAAAAAAAzQMAAAQAAAAAAAAAAAAAAAEAsQAAAAAABAAAAAAAAAAAAAAAAQC6AAAAAAAMAAAAAAAA
+AAAAAAAKAPUAAAAAAAAAAAABAAAA6gUAAAUABAAAAAAAADxNb2R1bGU+AFNUXzM2YTIyNDdmOTc4
+YTQ5ODk4ZjRmNjA5ZmZkODkwYzEwLmRsbABSZXNvdXJjZXMAU1RfNzhlZTFhZTIwMGFkNDdiZWFj
+YjI1ODMyMzNkZmQ2N2YuUHJvcGVydGllcwBTZXR0aW5ncwBTY3JpcHRNYWluAFNUXzc4ZWUxYWUy
+MDBhZDQ3YmVhY2IyNTgzMjMzZGZkNjdmAFNjcmlwdFJlc3VsdHMAbXNjb3JsaWIAU3lzdGVtAE9i
+amVjdABTeXN0ZW0uQ29uZmlndXJhdGlvbgBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBNaWNyb3Nv
+ZnQuU3FsU2VydmVyLlNjcmlwdFRhc2sATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuVGFza3MuU2Ny
+aXB0VGFzawBWU1RBUlRTY3JpcHRPYmplY3RNb2RlbEJhc2UARW51bQBTeXN0ZW0uUmVzb3VyY2Vz
+AFJlc291cmNlTWFuYWdlcgByZXNvdXJjZU1hbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBDdWx0dXJl
+SW5mbwByZXNvdXJjZUN1bHR1cmUALmN0b3IAZ2V0X1Jlc291cmNlTWFuYWdlcgBnZXRfQ3VsdHVy
+ZQBzZXRfQ3VsdHVyZQBDdWx0dXJlAGRlZmF1bHRJbnN0YW5jZQBnZXRfRGVmYXVsdABEZWZhdWx0
+AE1haW4AdmFsdWVfXwBTdWNjZXNzAEZhaWx1cmUAdmFsdWUAU3lzdGVtLlJ1bnRpbWUuVmVyc2lv
+bmluZwBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUAU3lzdGVtLlJlZmxlY3Rpb24AQXNzZW1ibHlU
+aXRsZUF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAEFzc2VtYmx5Q29uZmln
+dXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0
+QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0
+cmlidXRlAEFzc2VtYmx5Q3VsdHVyZUF0dHJpYnV0ZQBBc3NlbWJseVZlcnNpb25BdHRyaWJ1dGUA
+U3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0
+cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAFNUXzM2YTIyNDdmOTc4YTQ5ODk4
+ZjRmNjA5ZmZkODkwYzEwAFN5c3RlbS5EaWFnbm9zdGljcwBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0
+cmlidXRlAFR5cGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUAQXNzZW1ibHkA
+Z2V0X0Fzc2VtYmx5AFN5c3RlbS5Db21wb25lbnRNb2RlbABFZGl0b3JCcm93c2FibGVBdHRyaWJ1
+dGUARWRpdG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUALmNjdG9y
+AFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBTeXN0ZW0uVGV4dABVVEY4RW5jb2Rp
+bmcAVW5pY29kZUVuY29kaW5nAFN5c3RlbS5JTwBTdHJlYW1SZWFkZXIARW5jb2RpbmcAU3RyZWFt
+V3JpdGVyAFRleHRSZWFkZXIAUmVhZExpbmUAVGV4dFdyaXRlcgBXcml0ZUxpbmUAUGVlawBJRGlz
+cG9zYWJsZQBEaXNwb3NlAFNjcmlwdE9iamVjdE1vZGVsAGdldF9EdHMARXZlbnRzT2JqZWN0V3Jh
+cHBlcgBnZXRfRXZlbnRzAFN0cmluZwBGb3JtYXQARmlyZUVycm9yAHNldF9UYXNrUmVzdWx0AEV4
+Y2VwdGlvbgBTVF83OGVlMWFlMjAwYWQ0N2JlYWNiMjU4MzIzM2RmZDY3Zi5Qcm9wZXJ0aWVzLlJl
+c291cmNlcy5yZXNvdXJjZXMAAAAAAHFTAFQAXwA3ADgAZQBlADEAYQBlADIAMAAwAGEAZAA0ADcA
+YgBlAGEAYwBiADIANQA4ADMAMgAzADMAZABmAGQANgA3AGYALgBQAHIAbwBwAGUAcgB0AGkAZQBz
+AC4AUgBlAHMAbwB1AHIAYwBlAHMAAICFQwA6AFwASABEAEYAUwBfAFMAdABhAGcAZQBcAGQAYQB0
+AGEAXABtAGUAZABpAGEAdABlAG0AcABsAGUAQQBzAHMAaQBzAHQAZQBkAE0AaQBnAHIAYQB0AGkA
+bwBuAFEAdQBlAHUAZQBIAGkAcwB0AG8AcgB5AF8ASQBuAC4AdAB4AHQAAH9DADoAXABIAEQARgBT
+AF8AUwB0AGEAZwBlAFwAZABhAHQAYQBcAG0AZQBkAGkAYQB0AGUAbQBwAGwAZQBBAHMAcwBpAHMA
+dABlAGQATQBpAGcAcgBhAHQAaQBvAG4AUQB1AGUAdQBlAEgAaQBzAHQAbwByAHkALgB0AHgAdAAA
+WUUAcgByAG8AcgAgAHsAMAB9ACAAaQBuACAAVQBGADgAIABUAGEAcwBrACAAUwBjAHIAaQBwAHQA
+IAB1AHMAaQBuAGcAIABmAGkAbABlADoAIAB7ADEAfQAA1y1rit8CzE6Z893CEG5O1wAIt3pcVhk0
+4IkIiYRdzYCAzJEDBhIVAwYSGQMgAAEEAAASFQQAABIZBQABARIZBAgAEhUECAASGQMGEgwEAAAS
+DAQIABIMAgYIAwYRFAQAAAAABAEAAAAEIAEBDgQgAQEIBgABElERVQQgABJZBiACAQ4SWQQHARIV
+BSABARFhCAEAAgAAAAAAAwAAAQQgAQECBiACAQ4SeQcgAwEOAhJ5AyAADgMgAAgFIAASgI0FIAAS
+gJEGAAMODhwcCCAFAggODg4IDwcHDg4SeRJ5EnUSfRKAmUcBABouTkVURnJhbWV3b3JrLFZlcnNp
+b249djQuMAEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUQLk5FVCBGcmFtZXdvcmsgNCgBACNTVF83
+OGVlMWFlMjAwYWQ0N2JlYWNiMjU4MzIzM2RmZDY3ZgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAy
+MDE2AAAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBAJgwAAAAAAAAAAAA
+AK4wAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgMAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3Jl
+ZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAEAEAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAA
+AEgAAABYQAAAsAMAAAAAAAAAAAAAsAM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8A
+AAAAAL0E7/4AAAEAAAABAMmQKxcAAAEAyZArFz8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABE
+AAAAAQBWAGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8A
+bgAAAAAAAACwBBADAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAOwCAAABADAAMAAw
+ADAAMAA0AGIAMAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAFQA
+XwA3ADgAZQBlADEAYQBlADIAMAAwAGEAZAA0ADcAYgBlAGEAYwBiADIANQA4ADMAMgAzADMAZABm
+AGQANgA3AGYAAABAAA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4ANQA5ADMA
+MQAuADMANwAwADYANQAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAFQAXwAz
+ADYAYQAyADIANAA3AGYAOQA3ADgAYQA0ADkAOAA5ADgAZgA0AGYANgAwADkAZgBmAGQAOAA5ADAA
+YwAxADAALgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBw
+AHkAcgBpAGcAaAB0ACAAQAAgACAAMgAwADEANgAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkA
+bABlAG4AYQBtAGUAAABTAFQAXwAzADYAYQAyADIANAA3AGYAOQA3ADgAYQA0ADkAOAA5ADgAZgA0
+AGYANgAwADkAZgBmAGQAOAA5ADAAYwAxADAALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQA
+TgBhAG0AZQAAAAAAUwBUAF8ANwA4AGUAZQAxAGEAZQAyADAAMABhAGQANAA3AGIAZQBhAGMAYgAy
+ADUAOAAzADIAMwAzAGQAZgBkADYANwBmAAAARAAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkA
+bwBuAAAAMQAuADAALgA1ADkAMwAxAC4AMwA3ADAANgA1AAAAAABIAA8AAQBBAHMAcwBlAG0AYgBs
+AHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgA1ADkAMwAxAC4AMwA3ADAANgA1AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAAMAwAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Zip"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute GaTraffic"
+      DTS:DTSID="{48508d71-bb6b-48c1-bd5e-474e9c9c4d9d}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Zip"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>HDFS_Zip.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>var_hdfs_data_file_name</ParameterName>
+            <BindedVariableOrParameterName>User::var_hdfs_data_file_name</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>var_split</ParameterName>
+            <BindedVariableOrParameterName>User::var_split</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{79CB980E-7E45-44EC-9978-34C3073DE234}"
+      DTS:From="Package\Dump the data to the HDFS file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Script Task - UTF8" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9ADEC517-1AA7-4083-A00E-3EDD87B85308}"
+      DTS:From="Package\Script Task - UTF8"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Zip" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{55B74600-F83E-4FB1-A04E-24BC5C02795F}"
+      DTS:From="Package\Zip"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Move the HDFS Data File to archive" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{FD98A886-ACA2-477B-8923-77EFFBFA0FE7}"
+      DTS:From="Package\Remove the Zipped Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Dump the data to the HDFS file" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{1401BE6A-736D-4B98-8EC6-67F706FB2EC6}"
+      DTS:From="Package\Remove the Source File  - IN"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Remove the Source File" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{CE3A6042-4090-4E6E-909D-801C1F244CC5}"
+      DTS:From="Package\Remove the Source File"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Remove the Zipped Data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Dump the data to the HDFS file"
+          TopLeft="167,226" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\Move the HDFS Data File to archive"
+          TopLeft="167,396" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Remove the Source File"
+          TopLeft="466,136" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Remove the Source File  - IN"
+          TopLeft="466,48" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Remove the Zipped Data"
+          TopLeft="151,136" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Script Task - UTF8"
+          TopLeft="482,226" />
+        <NodeLayout
+          Size="93,42"
+          Id="Package\Zip"
+          TopLeft="496,304" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="394,247">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88,0"
+              Start="0,0"
+              End="80.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="80.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="565,268">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.5,36"
+              Start="0,0"
+              End="-22.5,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="-4,18" />
+                  <mssgle:LineSegment
+                    End="-18.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,18"
+                    Point2="-22.5,18"
+                    Point3="-22.5,22" />
+                  <mssgle:LineSegment
+                    End="-22.5,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="542.5,346">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-252.5,50"
+              Start="0,0"
+              End="-252.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-248.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-248.5,25"
+                    Point2="-252.5,25"
+                    Point3="-252.5,29" />
+                  <mssgle:LineSegment
+                    End="-252.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="249,178">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.5,48"
+              Start="0,0"
+              End="31.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="27.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.5,24"
+                    Point2="31.5,24"
+                    Point3="31.5,28" />
+                  <mssgle:LineSegment
+                    End="31.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="573.5,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.5,46"
+              Start="0,0"
+              End="-12.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-8.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.5,23"
+                    Point2="-12.5,23"
+                    Point3="-12.5,27" />
+                  <mssgle:LineSegment
+                    End="-12.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="466,157">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-119,0"
+              Start="0,0"
+              End="-111.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-111.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Dump the data to the HDFS file">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Dump the data to the HDFS file\OLE DB Source"
+          TopLeft="177,44" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Dump the data to the HDFS file\Flat File Destination"
+          TopLeft="170,157" />
+        <EdgeLayout
+          Id="Package\Dump the data to the HDFS file.Paths[OLE DB Source Output]"
+          TopLeft="254,86">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dump the data to the HDFS file\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

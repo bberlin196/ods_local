@@ -1,0 +1,3 @@
+ECHO ON
+C:\mtbi\HDFS_ETL\SSIS_HDFS_ETL_DataProcessing\SSIS_HDFS_ETL_DataProcessing\HDFS_ETL_DataProcessing\HDFS_ETL_WinScp.bat Notification
+

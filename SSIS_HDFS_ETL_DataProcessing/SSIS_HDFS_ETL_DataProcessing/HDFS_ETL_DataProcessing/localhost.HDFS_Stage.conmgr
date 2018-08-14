@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost.HDFS_Stage"
+  DTS:DTSID="{F2F60D3D-D66A-429F-B432-090E10DC05AE}"
+  DTS:CreationName="ADO.NET:SQL">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=HDFS_Stage;Integrated Security=True;Connect Timeout=30;Application Name=SSIS-Allocation_DetailsStageEx-{F2F60D3D-D66A-429F-B432-090E10DC05AE}localhost;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

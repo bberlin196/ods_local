@@ -1,0 +1,2791 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/18/2014 3:15:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LTMT000005-VYAN"
+  DTS:CreatorName="LTMT000005-VYAN\Van Yancey"
+  DTS:DTSID="{E81CE2BF-BD82-40EC-ACA6-EE4F3BF4AE2C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="TableauCohortCustomer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="471"
+  DTS:VersionGUID="{59119D9C-887E-4221-AB2A-9DA848DEC0FF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archive_TableauCohortCustomer.txt.zip]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{5D0BBF05-3DEA-464A-99C1-BAF27CED9149}"
+      DTS:ObjectName="Archive_TableauCohortCustomer.txt.zip">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"C:\\HDFS_Stage\\archive\\TableauCohortCustomer_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) +
+RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + 
+RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".txt.zip"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\HDFS_Stage\archive\TableauCohortCustomer_20171114.txt.zip" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost]"
+      DTS:CreationName="ADO.NET:SQL"
+      DTS:DTSID="{CB1C086F-F22E-4D7F-8A71-361C37CA2FD8}"
+      DTS:ObjectName="localhost">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Integrated Security=SSPI;Connect Timeout=30;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TableauCohortCustomer.txt]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="c_num"
+      DTS:DTSID="{5489E9B4-1A30-4E4C-8FB7-756FC1289829}"
+      DTS:ObjectName="TableauCohortCustomer.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\HDFS_Stage\data\TableauCohortCustomer.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cohort"
+              DTS:DTSID="{5C0DA27D-259A-4B76-AF07-E4C715324E95}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pointofpurchase"
+              DTS:DTSID="{2D64D092-B506-4801-8228-6EB39BDC100D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dept"
+              DTS:DTSID="{DC999BA3-D627-4CD9-8645-851FF83B682B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="25"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pchannel"
+              DTS:DTSID="{5DE0796E-186D-4DBE-9DBB-31783CC766B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="channel"
+              DTS:DTSID="{835C17ED-44F6-48FC-A98A-16E35F90E701}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="offercoderaw"
+              DTS:DTSID="{09C1C989-C477-4A82-B575-6EEF70C7945D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="importance"
+              DTS:DTSID="{58173576-A5C3-4AA5-8528-D6BAA4CE217E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="servdef"
+              DTS:DTSID="{7E8DEDD9-8F67-4F2B-8FA1-02C311C98CD4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pclass"
+              DTS:DTSID="{5FDB375A-9152-4140-9E05-537CE288A241}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="class"
+              DTS:DTSID="{9237D2F9-F34D-4372-93D4-F0F06DA39201}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="name"
+              DTS:DTSID="{4DC13A15-D0C8-4D3B-8C14-F5F9B97DC50F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="term"
+              DTS:DTSID="{74F27762-11D9-45CF-BE28-0C5836A1BFAD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nmonth"
+              DTS:DTSID="{2F49EC95-A85C-4186-9EE6-F2C96291B432}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="start_accounts"
+              DTS:DTSID="{FD848B65-71F7-4885-90D0-5536A075A542}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="accounts"
+              DTS:DTSID="{1D200A9C-9CEE-47F9-9EA5-81E41A34A29A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cumulative"
+              DTS:DTSID="{F4EB96AB-822C-483A-A99C-82E4DCFB3CAA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="net"
+              DTS:DTSID="{7182B899-E5B6-4776-AC9F-CF795B2D726A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mrr"
+              DTS:DTSID="{6D31C4A8-ADE0-4BA3-9A87-53E713B9F0BD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rec_datetime_stamp"
+              DTS:DTSID="{F891A508-E3D5-477B-851F-50F1BB5FBB67}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:DataType="21"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rec_num"
+              DTS:DTSID="{263CC71B-D08E-450F-96EB-8EE5103C5A1D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TableauCohortCustomer.txt.zip]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{401A9935-8154-4AAF-985B-0693A5B68F69}"
+      DTS:ObjectName="TableauCohortCustomer.txt.zip">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\HDFS_Stage\data\TableauCohortCustomer.txt.zip" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{7FE3695D-E1E5-4AB9-9444-249AE3AF7875}"
+      DTS:ObjectName="enddate">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">1/1/2016</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{1309E45A-84A8-40A9-B5B2-8CA2F8F51D62}"
+      DTS:ObjectName="startdate">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">1/1/2000</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3A1387BC-906C-4ED9-8BBD-60EB482C6CBB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VAR_DUMP_FILE_NAME">
+      <DTS:VariableValue
+        DTS:DataType="8">TableauNewcustomers</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0F641723-83F4-47ED-BF14-9B38AF5A5220}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="var_hdfs_data_file_name">
+      <DTS:VariableValue
+        DTS:DataType="8">TableauCohortCustomer</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{958A62EE-FCFA-4397-9258-AE65AE9D3FFF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="var_split">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\TableauNewcustomers"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{793B1E0C-0BDF-4157-9557-BAEE88783582}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TableauNewcustomers">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\TableauNewcustomers\Dump the data to the HDFS file"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{57F2E6DF-76E4-4678-8A78-268556BE9A39}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Dump the data to the HDFS file"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[TableauCohortCustomer.txt]"
+                      connectionManagerRefId="Package.ConnectionManagers[TableauCohortCustomer.txt]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[pointofpurchase]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="pointofpurchase"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pointofpurchase]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pointofpurchase]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[dept]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="dept"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[dept]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[dept]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[offercoderaw]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="offercoderaw"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[offercoderaw]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[offercoderaw]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[pchannel]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="pchannel"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pchannel]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pchannel]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[channel]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="channel"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[channel]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[channel]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[term]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="term"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[term]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[term]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[mrr]"
+                          cachedDataType="numeric"
+                          cachedName="mrr"
+                          cachedPrecision="38"
+                          cachedScale="10"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[mrr]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[mrr]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[rec_datetime_stamp]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="rec_datetime_stamp"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rec_datetime_stamp]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_datetime_stamp]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[rec_num]"
+                          cachedDataType="i8"
+                          cachedName="rec_num"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rec_num]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_num]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[cohort]"
+                          cachedDataType="dbDate"
+                          cachedName="cohort"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[cohort]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[cohort]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[importance]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="importance"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[importance]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[importance]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[servdef]"
+                          cachedDataType="i4"
+                          cachedName="servdef"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[servdef]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[servdef]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[nmonth]"
+                          cachedDataType="i4"
+                          cachedName="nmonth"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[nmonth]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[nmonth]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[start_accounts]"
+                          cachedDataType="i4"
+                          cachedName="start_accounts"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[start_accounts]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_accounts]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[accounts]"
+                          cachedDataType="i4"
+                          cachedName="accounts"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[accounts]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[accounts]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[cumulative]"
+                          cachedDataType="cy"
+                          cachedName="cumulative"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[cumulative]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[cumulative]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[net]"
+                          cachedDataType="cy"
+                          cachedName="net"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[net]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[net]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[pclass]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="pclass"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pclass]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pclass]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[class]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="class"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[class]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[class]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="name"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[name]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pointofpurchase]"
+                          dataType="wstr"
+                          length="30"
+                          name="pointofpurchase" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[dept]"
+                          dataType="wstr"
+                          length="30"
+                          name="dept" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[offercoderaw]"
+                          dataType="wstr"
+                          length="100"
+                          name="offercoderaw" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pchannel]"
+                          dataType="wstr"
+                          length="25"
+                          name="pchannel" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[channel]"
+                          dataType="wstr"
+                          length="30"
+                          name="channel" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[term]"
+                          dataType="wstr"
+                          length="100"
+                          name="term" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[mrr]"
+                          dataType="cy"
+                          name="mrr" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rec_datetime_stamp]"
+                          dataType="dbTimeStamp"
+                          name="rec_datetime_stamp" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rec_num]"
+                          dataType="ui8"
+                          name="rec_num" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[cohort]"
+                          dataType="date"
+                          name="cohort" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[importance]"
+                          dataType="wstr"
+                          length="4000"
+                          name="importance" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[servdef]"
+                          dataType="i4"
+                          name="servdef" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[nmonth]"
+                          dataType="i4"
+                          name="nmonth" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[start_accounts]"
+                          dataType="i4"
+                          name="start_accounts" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[accounts]"
+                          dataType="i4"
+                          name="accounts" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[cumulative]"
+                          dataType="cy"
+                          name="cumulative" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[net]"
+                          dataType="cy"
+                          name="net" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pclass]"
+                          dataType="wstr"
+                          length="100"
+                          name="pclass" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[class]"
+                          dataType="wstr"
+                          length="100"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[name]"
+                          dataType="wstr"
+                          length="100"
+                          name="name" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+       [cohort]
+	  ,replace(replace([pointofpurchase],char(10),';'),'`',',')  as  [pointofpurchase]  
+	  ,replace(replace([dept],char(10),';'),'`',',')  as  [dept]  
+	  ,replace(replace([pchannel],char(10),';'),'`',',')  as  [pchannel]  
+	  ,replace(replace([channel],char(10),';'),'`',',')  as  [channel]  
+      ,replace(replace([offercoderaw],char(10),';'),'`',',')  as  [offercoderaw]  
+	  ,replace(replace([importance],char(10),';'),'`',',')  as  [importance]  
+	  ,servdef
+      ,replace(replace([pclass],char(10),';'),'`',',')  as  [pclass]  
+	  ,replace(replace([class],char(10),';'),'`',',')  as  [class]  
+	  ,replace(replace([name],char(10),';'),'`',',')  as  [name]  
+	  ,[term]
+      ,[nmonth]
+      ,[start_accounts]
+      ,[accounts]
+      ,[cumulative]
+      ,[net]
+      ,[mrr]
+	  ,[rec_datetime_stamp]
+      ,[rec_num]
+FROM [dbo].[TableauCohortCustomer]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{D7F31EA7-B97A-4A5C-B6BC-861FA409B212}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[localhost.HDFS_Stage_Dest]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pclass]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pclass]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pclass]"
+                          name="pclass"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[class]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[class]"
+                          name="class"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]"
+                          name="name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pointofpurchase]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pointofpurchase]"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pointofpurchase]"
+                          name="pointofpurchase"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[dept]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dept]"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[dept]"
+                          name="dept"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[offercoderaw]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[offercoderaw]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[offercoderaw]"
+                          name="offercoderaw"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pchannel]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pchannel]"
+                          length="25"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pchannel]"
+                          name="pchannel"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[channel]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[channel]"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[channel]"
+                          name="channel"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[term]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[term]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[term]"
+                          name="term"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[mrr]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mrr]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[mrr]"
+                          name="mrr"
+                          precision="38"
+                          scale="10"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_datetime_stamp]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rec_datetime_stamp]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_datetime_stamp]"
+                          name="rec_datetime_stamp"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_num]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rec_num]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_num]"
+                          name="rec_num"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[cohort]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cohort]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[cohort]"
+                          name="cohort"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[importance]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[importance]"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[importance]"
+                          name="importance"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[servdef]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[servdef]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[servdef]"
+                          name="servdef"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[nmonth]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nmonth]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[nmonth]"
+                          name="nmonth"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_accounts]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_accounts]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_accounts]"
+                          name="start_accounts"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[accounts]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accounts]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[accounts]"
+                          name="accounts"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[cumulative]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cumulative]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[cumulative]"
+                          name="cumulative"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[net]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[net]"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[net]"
+                          name="net"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pclass]"
+                          dataType="wstr"
+                          length="4000"
+                          name="pclass" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          dataType="wstr"
+                          length="4000"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                          dataType="wstr"
+                          length="4000"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pointofpurchase]"
+                          dataType="wstr"
+                          length="4000"
+                          name="pointofpurchase" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dept]"
+                          dataType="wstr"
+                          length="4000"
+                          name="dept" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[offercoderaw]"
+                          dataType="wstr"
+                          length="4000"
+                          name="offercoderaw" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pchannel]"
+                          dataType="wstr"
+                          length="4000"
+                          name="pchannel" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[channel]"
+                          dataType="wstr"
+                          length="4000"
+                          name="channel" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[term]"
+                          dataType="wstr"
+                          length="30"
+                          name="term" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mrr]"
+                          dataType="cy"
+                          name="mrr" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rec_datetime_stamp]"
+                          dataType="dbTimeStamp"
+                          name="rec_datetime_stamp" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rec_num]"
+                          dataType="i8"
+                          name="rec_num" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cohort]"
+                          dataType="dbDate"
+                          name="cohort" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[importance]"
+                          dataType="wstr"
+                          length="4000"
+                          name="importance" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[servdef]"
+                          dataType="i4"
+                          name="servdef" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nmonth]"
+                          dataType="i4"
+                          name="nmonth" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_accounts]"
+                          dataType="i4"
+                          name="start_accounts" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accounts]"
+                          dataType="i4"
+                          name="accounts" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cumulative]"
+                          dataType="cy"
+                          name="cumulative" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[net]"
+                          dataType="cy"
+                          name="net" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cohort]"
+                          dataType="dbDate"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cohort]"
+                          name="cohort" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pclass]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pclass]"
+                          name="pclass" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[class]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[class]"
+                          name="class" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                          name="name" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pointofpurchase]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pointofpurchase]"
+                          name="pointofpurchase" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dept]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dept]"
+                          name="dept" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importance]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importance]"
+                          name="importance" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[servdef]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[servdef]"
+                          name="servdef" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[offercoderaw]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[offercoderaw]"
+                          name="offercoderaw" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pchannel]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pchannel]"
+                          name="pchannel" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[channel]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[channel]"
+                          name="channel" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[term]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[term]"
+                          name="term" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nmonth]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nmonth]"
+                          name="nmonth" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_accounts]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_accounts]"
+                          name="start_accounts" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accounts]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accounts]"
+                          name="accounts" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cumulative]"
+                          dataType="cy"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cumulative]"
+                          name="cumulative" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[net]"
+                          dataType="cy"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[net]"
+                          name="net" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mrr]"
+                          dataType="cy"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mrr]"
+                          name="mrr" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rec_datetime_stamp]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rec_datetime_stamp]"
+                          name="rec_datetime_stamp" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rec_num]"
+                          dataType="i8"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rec_num]"
+                          name="rec_num" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\TableauNewcustomers\Dump the data to the HDFS file.Paths[OLE DB Source Output]"
+                  endId="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{826101E1-E4E8-429B-8D2A-BED97FB5BDFB}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[pointofpurchase]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="pointofpurchase"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pointofpurchase]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[dept]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="dept"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[dept]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[pchannel]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="pchannel"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pchannel]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[channel]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="channel"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[channel]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[offercoderaw]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="offercoderaw"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[offercoderaw]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[importance]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="importance"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[importance]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[pclass]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="pclass"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pclass]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[class]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="class"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[class]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="name"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input].Columns[term]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="term"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[term]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pointofpurchase]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pointofpurchase]"
+                          name="Copy of pointofpurchase"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pointofpurchase]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of dept]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of dept]"
+                          name="Copy of dept"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[dept]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pchannel]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pchannel]"
+                          name="Copy of pchannel"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pchannel]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of channel]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of channel]"
+                          name="Copy of channel"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[channel]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of offercoderaw]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of offercoderaw]"
+                          name="Copy of offercoderaw"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[offercoderaw]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of importance]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of importance]"
+                          name="Copy of importance"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[importance]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pclass]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pclass]"
+                          name="Copy of pclass"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pclass]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of class]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of class]"
+                          name="Copy of class"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[class]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of name]"
+                          name="Copy of name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of term]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of term]"
+                          name="Copy of term"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[term]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[TableauCohortCustomer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{D7F31EA7-B97A-4A5C-B6BC-861FA409B212}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[localhost.HDFS_Stage_Dest]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cohort]"
+                          cachedDataType="dbDate"
+                          cachedName="cohort"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cohort]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[cohort]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[servdef]"
+                          cachedDataType="i4"
+                          cachedName="servdef"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[servdef]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[servdef]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nmonth]"
+                          cachedDataType="i4"
+                          cachedName="nmonth"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nmonth]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[nmonth]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_accounts]"
+                          cachedDataType="i4"
+                          cachedName="start_accounts"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_accounts]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_accounts]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[accounts]"
+                          cachedDataType="i4"
+                          cachedName="accounts"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accounts]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[accounts]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cumulative]"
+                          cachedDataType="cy"
+                          cachedName="cumulative"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cumulative]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[cumulative]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[net]"
+                          cachedDataType="cy"
+                          cachedName="net"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[net]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[net]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mrr]"
+                          cachedDataType="cy"
+                          cachedName="mrr"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mrr]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[mrr]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of pointofpurchase]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of pointofpurchase"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pointofpurchase]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pointofpurchase]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of dept]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of dept"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dept]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of dept]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of pchannel]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of pchannel"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pchannel]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pchannel]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of channel]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of channel"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[channel]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of channel]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of offercoderaw]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Copy of offercoderaw"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[offercoderaw]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of offercoderaw]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of importance]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Copy of importance"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[importance]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of importance]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of pclass]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of pclass"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pclass]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pclass]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of class]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of class"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[class]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of class]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of name"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of name]" />
+                        <inputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of term]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Copy of term"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[term]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of term]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cohort]"
+                          dataType="dbDate"
+                          name="cohort" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pointofpurchase]"
+                          dataType="wstr"
+                          length="100"
+                          name="pointofpurchase" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dept]"
+                          dataType="wstr"
+                          length="100"
+                          name="dept" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pchannel]"
+                          dataType="wstr"
+                          length="100"
+                          name="pchannel" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[channel]"
+                          dataType="wstr"
+                          length="100"
+                          name="channel" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[offercoderaw]"
+                          dataType="wstr"
+                          length="30"
+                          name="offercoderaw" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[importance]"
+                          dataType="wstr"
+                          length="30"
+                          name="importance" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[servdef]"
+                          dataType="i4"
+                          name="servdef" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pclass]"
+                          dataType="wstr"
+                          length="100"
+                          name="pclass" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[class]"
+                          dataType="wstr"
+                          length="100"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          dataType="wstr"
+                          length="100"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[term]"
+                          dataType="wstr"
+                          length="30"
+                          name="term" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nmonth]"
+                          dataType="i4"
+                          name="nmonth" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_accounts]"
+                          dataType="i4"
+                          name="start_accounts" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accounts]"
+                          dataType="i4"
+                          name="accounts" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cumulative]"
+                          dataType="cy"
+                          name="cumulative" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[net]"
+                          dataType="cy"
+                          name="net" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mrr]"
+                          dataType="cy"
+                          name="mrr" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rec_datetime_stamp]"
+                          dataType="dbTimeStamp"
+                          name="rec_datetime_stamp" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rec_num]"
+                          dataType="i8"
+                          name="rec_num" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC mtbiODS.dbo.tableau_cohortcustomer_sp
+WITH RESULT SETS
+(
+  (
+	cohort DATE NOT NULL,
+	pointofpurchase VARCHAR(100) NOT NULL,
+	dept VARCHAR(100) NOT NULL,
+	pchannel VARCHAR(100) NOT NULL,
+	channel VARCHAR(100) NOT NULL,
+	offercoderaw VARCHAR(30) NOT NULL,
+	importance VARCHAR(30) NOT NULL,
+	servdef INT NOT NULL,
+	pclass VARCHAR(100) NOT NULL,
+	class VARCHAR(100) NOT NULL,
+	name VARCHAR(100) NOT NULL,
+	term VARCHAR(30) NOT NULL,
+	nmonth INT NOT NULL,
+	start_accounts INT NOT NULL,
+	accounts INT NOT NULL,
+	cumulative MONEY NOT NULL,
+	net MONEY NOT NULL,
+	mrr MONEY NOT NULL
+  )
+);</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{435A59D3-52E5-406C-A442-AB489A4652D2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[bi01.lax01.mtsvc.net.mtbiODS.biadmin]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[cohort]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cohort]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[cohort]"
+                          name="cohort"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pointofpurchase]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pointofpurchase]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pointofpurchase]"
+                          name="pointofpurchase"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[dept]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dept]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[dept]"
+                          name="dept"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pchannel]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pchannel]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pchannel]"
+                          name="pchannel"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[channel]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[channel]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[channel]"
+                          name="channel"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[offercoderaw]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[offercoderaw]"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[offercoderaw]"
+                          name="offercoderaw"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[importance]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[importance]"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[importance]"
+                          name="importance"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[servdef]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[servdef]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[servdef]"
+                          name="servdef"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pclass]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pclass]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[pclass]"
+                          name="pclass"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[class]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[class]"
+                          name="class"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]"
+                          name="name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[term]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[term]"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[term]"
+                          name="term"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[nmonth]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nmonth]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[nmonth]"
+                          name="nmonth"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_accounts]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_accounts]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_accounts]"
+                          name="start_accounts"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[accounts]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accounts]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[accounts]"
+                          name="accounts"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[cumulative]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cumulative]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[cumulative]"
+                          name="cumulative"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[net]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[net]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[net]"
+                          name="net"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[mrr]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mrr]"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[mrr]"
+                          name="mrr"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cohort]"
+                          dataType="dbDate"
+                          name="cohort" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pointofpurchase]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="pointofpurchase" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dept]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="dept" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pchannel]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="pchannel" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[channel]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="channel" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[offercoderaw]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="offercoderaw" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[importance]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="importance" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[servdef]"
+                          dataType="i4"
+                          name="servdef" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pclass]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="pclass" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[term]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="term" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nmonth]"
+                          dataType="i4"
+                          name="nmonth" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_accounts]"
+                          dataType="i4"
+                          name="start_accounts" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accounts]"
+                          dataType="i4"
+                          name="accounts" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cumulative]"
+                          dataType="cy"
+                          name="cumulative" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[net]"
+                          dataType="cy"
+                          name="net" />
+                        <externalMetadataColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mrr]"
+                          dataType="cy"
+                          name="mrr" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cohort]"
+                          dataType="dbDate"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cohort]"
+                          name="cohort" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pointofpurchase]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pointofpurchase]"
+                          name="pointofpurchase" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dept]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dept]"
+                          name="dept" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pchannel]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pchannel]"
+                          name="pchannel" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[channel]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[channel]"
+                          name="channel" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[offercoderaw]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[offercoderaw]"
+                          name="offercoderaw" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importance]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importance]"
+                          name="importance" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[servdef]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[servdef]"
+                          name="servdef" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pclass]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pclass]"
+                          name="pclass" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[class]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[class]"
+                          name="class" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                          name="name" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[term]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[term]"
+                          name="term" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nmonth]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nmonth]"
+                          name="nmonth" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_accounts]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_accounts]"
+                          name="start_accounts" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accounts]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accounts]"
+                          name="accounts" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cumulative]"
+                          dataType="cy"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cumulative]"
+                          name="cumulative" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[net]"
+                          dataType="cy"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[net]"
+                          name="net" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mrr]"
+                          dataType="cy"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mrr]"
+                          name="mrr" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table.Paths[Data Conversion Output]"
+                  endId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table.Paths[OLE DB Source Output]"
+                  endId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TableauNewcustomers\Move the HDFS Data File to archive"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{2d7fbade-5ea3-42a4-ab4c-a0541f9df6e9}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Move the HDFS Data File to archive"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="{401A9935-8154-4AAF-985B-0693A5B68F69}"
+              TaskDestinationPath="{5D0BBF05-3DEA-464A-99C1-BAF27CED9149}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TableauNewcustomers\Remove the Source File"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{a82d3db2-73f5-41cf-8e01-0d0e1e496e16}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Remove the Source File"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="{5489E9B4-1A30-4E4C-8FB7-756FC1289829}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TableauNewcustomers\Remove the Zipped Data"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{3631aa3e-7f8d-43f3-8c65-b56e46d07594}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Remove the Zipped Data"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="{401A9935-8154-4AAF-985B-0693A5B68F69}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TableauNewcustomers\Truncate HDFS Stage Table"
+          DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:Description="Execute T-SQL Statement Task"
+          DTS:DTSID="{B52AF534-E9F1-4915-B572-C8737AA9C362}"
+          DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate HDFS Stage Table"
+          DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CB1C086F-F22E-4D7F-8A71-361C37CA2FD8}"
+              SQLTask:SqlStatementSource="use HDFS_Stage;&#xA;truncate table [dbo].[TableauCohortCustomer];&#xA;"
+              SQLTask:ServerVersion="9"
+              SQLTask:ExtendedLogging="True"
+              SQLTask:LocalConnectionForLogging=""
+              SQLTask:TaskName=""
+              SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TableauNewcustomers\Zip"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute GaTraffic"
+          DTS:DTSID="{e2933685-e4ea-48d3-8e20-1d1f1fdbb209}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Zip"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>HDFS_Zip.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>var_hdfs_data_file_name</ParameterName>
+                <BindedVariableOrParameterName>User::var_hdfs_data_file_name</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>var_split</ParameterName>
+                <BindedVariableOrParameterName>User::var_split</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TableauNewcustomers.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B92C8E53-9EE3-4862-A261-EC45BB9456B0}"
+          DTS:From="Package\TableauNewcustomers\Truncate HDFS Stage Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{017D5791-CD0C-4206-AE98-D506CE2CBA7A}"
+          DTS:From="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\TableauNewcustomers\Dump the data to the HDFS file" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2BA1F37-078F-4405-AF81-D1DB114D1F1C}"
+          DTS:From="Package\TableauNewcustomers\Dump the data to the HDFS file"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\TableauNewcustomers\Zip" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{AD566F46-00A4-4917-A554-785B811A4F62}"
+          DTS:From="Package\TableauNewcustomers\Zip"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\TableauNewcustomers\Move the HDFS Data File to archive" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{F10C1AE5-0EDB-4EFC-8024-6D0B681EA5A2}"
+          DTS:From="Package\TableauNewcustomers\Remove the Zipped Data"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\TableauNewcustomers\Truncate HDFS Stage Table" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{e0186e1a-2286-41e4-a13e-b5ec6ffa7a37}"
+          DTS:From="Package\TableauNewcustomers\Remove the Source File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\TableauNewcustomers\Remove the Zipped Data" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="227,42"
+          Id="Package\TableauNewcustomers\Dump the data to the HDFS file"
+          TopLeft="182.857142857143,431" />
+        <NodeLayout
+          Size="415,42"
+          Id="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table"
+          TopLeft="94.357142857143,359" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\TableauNewcustomers\Move the HDFS Data File to archive"
+          TopLeft="170.357142857143,582" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\TableauNewcustomers\Remove the Source File"
+          TopLeft="150.857142857143,103" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\TableauNewcustomers\Remove the Zipped Data"
+          TopLeft="164.785714285714,182" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\TableauNewcustomers\Truncate HDFS Stage Table"
+          TopLeft="191.857142857143,286" />
+        <NodeLayout
+          Size="93,42"
+          Id="Package\TableauNewcustomers\Zip"
+          TopLeft="241.357142857143,501" />
+        <EdgeLayout
+          Id="Package\TableauNewcustomers.PrecedenceConstraints[Constraint]"
+          TopLeft="299.607142857143,328">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 1]"
+          TopLeft="299.107142857143,401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 2]"
+          TopLeft="296.357142857143,473">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,28"
+              Start="0,0"
+              End="-8.5,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10"
+                    Point2="0,14"
+                    Point3="-4,14" />
+                  <mssgle:LineSegment
+                    End="-4.5,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,14"
+                    Point2="-8.5,14"
+                    Point3="-8.5,18" />
+                  <mssgle:LineSegment
+                    End="-8.5,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 3]"
+          TopLeft="290.607142857143,543">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 4]"
+          TopLeft="263.785714285714,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.571428571429,62"
+              Start="0,0"
+              End="33.571428571429,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="4,31" />
+                  <mssgle:LineSegment
+                    End="29.571428571429,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.571428571429,31"
+                    Point2="33.571428571429,31"
+                    Point3="33.571428571429,35" />
+                  <mssgle:LineSegment
+                    End="33.571428571429,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TableauNewcustomers.PrecedenceConstraints[Constraint 6]"
+          TopLeft="246.857142857143,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.9285714285711,37"
+              Start="0,0"
+              End="16.9285714285711,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="12.9285714285711,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.9285714285711,18.5"
+                    Point2="16.9285714285711,18.5"
+                    Point3="16.9285714285711,22.5" />
+                  <mssgle:LineSegment
+                    End="16.9285714285711,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1071,781"
+          Size="1071,824"
+          Id="Package\TableauNewcustomers"
+          TopLeft="277.833333333333,58.7777777777781" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TableauNewcustomers\Dump the data to the HDFS file">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source"
+          TopLeft="135,42" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\TableauNewcustomers\Dump the data to the HDFS file\Flat File Destination"
+          TopLeft="203,139" />
+        <EdgeLayout
+          Id="Package\TableauNewcustomers\Dump the data to the HDFS file.Paths[OLE DB Source Output]"
+          TopLeft="210,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,55"
+              Start="0,0"
+              End="79,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="4,27.5" />
+                  <mssgle:LineSegment
+                    End="75,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75,27.5"
+                    Point2="79,27.5"
+                    Point3="79,31.5" />
+                  <mssgle:LineSegment
+                    End="79,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="http://www.cozyroc.com/ssis/data-flow-task"
+          ParentId="Package\TableauNewcustomers\Dump the data to the HDFS file"
+          FontInfo="{assembly:Null}"
+          Size="262,40"
+          Id="6652e6f3-3f8c-4618-b025-70952436d782"
+          TopLeft="749,53" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TableauNewcustomers\Dump the data to the HDFS file\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination"
+          TopLeft="370,238" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source"
+          TopLeft="373,52" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\Data Conversion"
+          TopLeft="368,134" />
+        <EdgeLayout
+          Id="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table.Paths[OLE DB Source Output]"
+          TopLeft="447,94">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table.Paths[Data Conversion Output]"
+          TopLeft="446,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,62"
+              Start="0,0"
+              End="9.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="4,31" />
+                  <mssgle:LineSegment
+                    End="5.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,31"
+                    Point2="9.5,31"
+                    Point3="9.5,35" />
+                  <mssgle:LineSegment
+                    End="9.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TableauNewcustomers\Extract Data from tableau_cohortcustomer_sp to the HDFS Stage Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

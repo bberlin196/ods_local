@@ -1,0 +1,3377 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/9/2016 12:26:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RU2NSSLL7HS"
+  DTS:CreatorName="WIN-RU2NSSLL7HS\Administrator"
+  DTS:DTSID="{21B8E114-8369-41BD-B158-D182CA50671F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="MediatempleMachine"
+  DTS:PackageType="5"
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{35ECE41B-7C6E-4681-8B9A-DE743F8743F6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archive_mediatempleMachine.txt.zip]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{17728F87-8B9B-40AC-BF74-9CAC4EC1A56D}"
+      DTS:ObjectName="Archive_mediatempleMachine.txt.zip">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"C:\\HDFS_Stage\\archive\\mediatempleMachine_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) +
+RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + 
+RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".txt.zip"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\HDFS_Stage\archive\mediatempleMachine_20171114.txt.zip" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[mediatempleMachine.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{06BAEEE2-EEF5-42CC-9CB9-3F50403EDBF0}"
+      DTS:ObjectName="mediatempleMachine.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\HDFS_Stage\data\mediatempleMachine.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[mediatempleMachine.txt.zip]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A14C50CE-BE68-4FEA-9B01-CB296DFF1E4E}"
+      DTS:ObjectName="mediatempleMachine.txt.zip">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\HDFS_Stage\data\mediatempleMachine.txt.zip" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[mediatempleMachine_In.txt]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{0F18CF5F-E25C-484B-BCA9-616E406B3539}"
+      DTS:ObjectName="mediatempleMachine_In.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\HDFS_Stage\data\mediatempleMachine_In.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="19"
+              DTS:TextQualified="True"
+              DTS:ObjectName="machineID"
+              DTS:DTSID="{BE0AAD9D-46B5-49C9-8040-2D9A449ED8E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="serialID"
+              DTS:DTSID="{ADF67F78-F201-4586-90EE-DC6523D5C53E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="switch"
+              DTS:DTSID="{251E2470-66F7-4E32-86AD-AF0A2ABB58E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="port"
+              DTS:DTSID="{8FA62F1C-AB5F-4B02-9294-08967F0E229C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pdu"
+              DTS:DTSID="{4B2EF0BF-D2A8-4F6A-9C82-3510A08860DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pduport"
+              DTS:DTSID="{CD0E2920-31C6-401B-8CC5-8E5E371C3F9E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="company"
+              DTS:DTSID="{B7A36ED5-BEA6-4C8A-BAD4-0060EC268DAA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="manufacturermanufacturer"
+              DTS:DTSID="{A6DD7C41-EEDD-4F98-AD6E-82DB6FEC6127}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="model"
+              DTS:DTSID="{68C5F568-BCED-4600-B4BC-32532766CD73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="numberofcpu"
+              DTS:DTSID="{49BD3DF1-0A31-4751-8911-2661A69BF4D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cpuspeed"
+              DTS:DTSID="{DED04E7B-C2EC-4FF7-84C4-216BB76456C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ramslot1"
+              DTS:DTSID="{67DA85F0-2131-482D-A93D-12255650BADC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ramslot2"
+              DTS:DTSID="{6A0E4BCE-BFD1-44D7-9644-5E420C521925}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ramslot3"
+              DTS:DTSID="{D6F4A4C2-8F78-49B5-8FC9-C193FAEFDEB7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ramslot4"
+              DTS:DTSID="{1B890EF7-7FBF-4654-9DEB-FB88A40638A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HDtype"
+              DTS:DTSID="{8E22FC33-6BD9-4017-9E9A-28F4DB10CFBC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="numberofHD"
+              DTS:DTSID="{31D8A1DB-E7D4-47DA-A3D3-334C1202E395}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HDsize"
+              DTS:DTSID="{DB0AF69B-EC2D-4772-9880-0784E9FC520B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="casesize"
+              DTS:DTSID="{E87AA2B1-40AE-43AD-B085-D1E710E6EB2B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="numberofeth"
+              DTS:DTSID="{5A1D7ADE-95C0-4A47-93CA-FF2C57C666FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="powersupply"
+              DTS:DTSID="{47D6796D-18E4-45C5-AC24-5241B4059ED5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="operatingsystem"
+              DTS:DTSID="{568AA3BB-B93E-450E-BFA0-E4EB485C9D96}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="302"
+              DTS:TextQualified="True"
+              DTS:ObjectName="notes"
+              DTS:DTSID="{771CD623-0B19-41C5-A310-A15F62EB3ABF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="monitored"
+              DTS:DTSID="{832FF423-8F6B-4061-870F-A3CE22B2FE57}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rackno"
+              DTS:DTSID="{941F7217-E853-4FE5-9895-5503878F46D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fiberport"
+              DTS:DTSID="{5AB89FC2-96F0-4B31-8768-722B29339968}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wwn"
+              DTS:DTSID="{21139AB0-4AB5-4DF7-AC1A-1BDBA038B9B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fiberswitch"
+              DTS:DTSID="{1602635E-146A-4A5B-BA7D-5CA78FA9E4AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rackposition"
+              DTS:DTSID="{CB9E5133-0DC4-4456-A426-928BACA40489}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="vendor"
+              DTS:DTSID="{C6B48D85-0324-403C-8836-D4ED5D37ED7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="orderno"
+              DTS:DTSID="{2C84791B-3BEE-4E79-B388-8B1CD589A134}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="type"
+              DTS:DTSID="{555290D4-9F5A-4B6D-88A8-928CA5824D68}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mac01"
+              DTS:DTSID="{3F3A080B-2212-490A-B4B5-96F6AD966001}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mac02"
+              DTS:DTSID="{772EA2F8-0858-4294-B3B7-DC6FD39B031A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="macilo"
+              DTS:DTSID="{4269B820-A8CF-4CC9-A0AF-BB8768AA47CD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="maintenance_agreement_id"
+              DTS:DTSID="{2FB11B4C-1A90-4AD6-899C-DA918D1CBFCF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="removed"
+              DTS:DTSID="{D6A5F7E7-06E5-4027-8AFC-6BAD75425937}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="facility"
+              DTS:DTSID="{367BC712-72C2-4AC8-9CC4-D744661A92F4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="destroy_me"
+              DTS:DTSID="{0415D010-37BB-4E53-B28C-293D179F6E14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="leased"
+              DTS:DTSID="{E631EB2E-72DA-40B2-A452-B40DA8ED07D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="infrastructure"
+              DTS:DTSID="{1C598DAC-6F52-4094-AC88-90ACE3E6AFB2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="memory"
+              DTS:DTSID="{2FA4C153-FB86-4CE2-B7C9-E0C00E14A9F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0060_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="asset_class"
+              DTS:DTSID="{DE98BA84-034D-4893-8835-006B6102DFE1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rec_datetime_stamp"
+              DTS:DTSID="{1091B649-5726-4530-96B2-1C0C29E67A5B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{354F1D52-4B40-4E00-BE31-4C06EA6938E6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="var_hdfs_data_file_name">
+      <DTS:VariableValue
+        DTS:DataType="8">mediatempleMachine</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{53EE6C4D-14CF-4768-B308-7B114608C883}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="var_split">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Dump the data to the HDFS file"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7E748CBB-C6BC-4D43-BD24-84C56EC99827}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dump the data to the HDFS file"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dump the data to the HDFS file\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dump the data to the HDFS file\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Data Conversion.Inputs[Data Conversion Input].Columns[notes]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="notes"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[notes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Dump the data to the HDFS file\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notes]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notes]"
+                      name="Copy of notes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[notes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Dump the data to the HDFS file\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dump the data to the HDFS file\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dump the data to the HDFS file\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[mediatempleMachine_In.txt]"
+                  connectionManagerRefId="Package.ConnectionManagers[mediatempleMachine_In.txt]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[machineID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="machineID"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[machineID]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[machineID]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[serialID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="serialID"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[serialID]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[serialID]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[switch]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="switch"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[switch]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[switch]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[port]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="port"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[port]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[port]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[pdu]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="pdu"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pdu]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pdu]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[pduport]"
+                      cachedDataType="i4"
+                      cachedName="pduport"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pduport]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pduport]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[company]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="company"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[company]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[company]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[manufacturermanufacturer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="manufacturermanufacturer"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[manufacturermanufacturer]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[manufacturermanufacturer]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[model]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="model"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[model]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[numberofcpu]"
+                      cachedDataType="i4"
+                      cachedName="numberofcpu"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[numberofcpu]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[numberofcpu]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[cpuspeed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="cpuspeed"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[cpuspeed]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[cpuspeed]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[ramslot1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="ramslot1"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ramslot1]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot1]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[ramslot2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="ramslot2"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ramslot2]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot2]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[ramslot3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="ramslot3"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ramslot3]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot3]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[ramslot4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="ramslot4"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ramslot4]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot4]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[HDtype]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="HDtype"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HDtype]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[HDtype]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[numberofHD]"
+                      cachedDataType="i4"
+                      cachedName="numberofHD"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[numberofHD]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[numberofHD]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[HDsize]"
+                      cachedDataType="i4"
+                      cachedName="HDsize"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HDsize]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[HDsize]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[casesize]"
+                      cachedDataType="i4"
+                      cachedName="casesize"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[casesize]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[casesize]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[numberofeth]"
+                      cachedDataType="i4"
+                      cachedName="numberofeth"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[numberofeth]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[numberofeth]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[powersupply]"
+                      cachedDataType="i4"
+                      cachedName="powersupply"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[powersupply]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[powersupply]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[operatingsystem]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="operatingsystem"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[operatingsystem]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[operatingsystem]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[monitored]"
+                      cachedDataType="i4"
+                      cachedName="monitored"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[monitored]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[monitored]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[rackno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="rackno"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rackno]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rackno]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[fiberport]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="fiberport"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[fiberport]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[fiberport]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[wwn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="wwn"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[wwn]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[wwn]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[fiberswitch]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="fiberswitch"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[fiberswitch]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[fiberswitch]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[rackposition]"
+                      cachedDataType="i4"
+                      cachedName="rackposition"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rackposition]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rackposition]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[vendor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="vendor"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[vendor]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[vendor]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[orderno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="orderno"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[orderno]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[orderno]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="type"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[type]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[type]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[mac01]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="mac01"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[mac01]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac01]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[mac02]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="mac02"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[mac02]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac02]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[macilo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="macilo"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[macilo]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[macilo]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[maintenance_agreement_id]"
+                      cachedDataType="i4"
+                      cachedName="maintenance_agreement_id"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[maintenance_agreement_id]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[maintenance_agreement_id]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[removed]"
+                      cachedDataType="i4"
+                      cachedName="removed"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[removed]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[removed]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[facility]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="facility"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[facility]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[facility]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[destroy_me]"
+                      cachedDataType="i4"
+                      cachedName="destroy_me"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[destroy_me]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[destroy_me]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[leased]"
+                      cachedDataType="i4"
+                      cachedName="leased"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[leased]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[leased]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[infrastructure]"
+                      cachedDataType="i4"
+                      cachedName="infrastructure"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[infrastructure]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[infrastructure]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[memory]"
+                      cachedDataType="i4"
+                      cachedName="memory"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[memory]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[memory]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[asset_class]"
+                      cachedDataType="i4"
+                      cachedName="asset_class"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[asset_class]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[asset_class]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of notes]"
+                      cachedDataType="nText"
+                      cachedName="Copy of notes"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[notes]"
+                      lineageId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notes]" />
+                    <inputColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].Columns[rec_datetime_stamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="rec_datetime_stamp"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rec_datetime_stamp]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_datetime_stamp]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[machineID]"
+                      dataType="ui4"
+                      name="machineID" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[serialID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="serialID" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[switch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="switch" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[port]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="port" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pdu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="pdu" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[pduport]"
+                      dataType="i4"
+                      name="pduport" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[manufacturermanufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="manufacturermanufacturer" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="model" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[numberofcpu]"
+                      dataType="i4"
+                      name="numberofcpu" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[cpuspeed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="cpuspeed" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ramslot1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="ramslot1" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ramslot2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="ramslot2" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ramslot3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="ramslot3" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ramslot4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="ramslot4" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HDtype]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="HDtype" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[numberofHD]"
+                      dataType="i4"
+                      name="numberofHD" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HDsize]"
+                      dataType="i4"
+                      name="HDsize" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[casesize]"
+                      dataType="i4"
+                      name="casesize" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[numberofeth]"
+                      dataType="i4"
+                      name="numberofeth" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[powersupply]"
+                      dataType="i4"
+                      name="powersupply" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[operatingsystem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="operatingsystem" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[notes]"
+                      codePage="1252"
+                      dataType="text"
+                      name="notes" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[monitored]"
+                      dataType="i4"
+                      name="monitored" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rackno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="rackno" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[fiberport]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="fiberport" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[wwn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="wwn" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[fiberswitch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="fiberswitch" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rackposition]"
+                      dataType="i4"
+                      name="rackposition" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[vendor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="vendor" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[orderno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="orderno" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[mac01]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="mac01" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[mac02]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="mac02" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[macilo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="macilo" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[maintenance_agreement_id]"
+                      dataType="i4"
+                      name="maintenance_agreement_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[removed]"
+                      dataType="i4"
+                      name="removed" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[facility]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="facility" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[destroy_me]"
+                      dataType="i4"
+                      name="destroy_me" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[leased]"
+                      dataType="i4"
+                      name="leased" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[infrastructure]"
+                      dataType="i4"
+                      name="infrastructure" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[memory]"
+                      dataType="i4"
+                      name="memory" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[asset_class]"
+                      dataType="i4"
+                      name="asset_class" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rec_datetime_stamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rec_datetime_stamp" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Dump the data to the HDFS file\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+       replace(replace([machineID],char(10),';'),'`',',')  as  [machineID],
+	replace(replace([serialID],char(10),';'),'`',',')  as  [serialID],
+	replace(replace([switch],char(10),';'),'`',',')  as  [switch],
+	replace(replace([port],char(10),';'),'`',',')  as  [port],
+	replace(replace([pdu],char(10),';'),'`',',')  as  [pdu],
+		
+	[pduport] ,
+
+	replace(replace([company],char(10),';'),'`',',')  as  [company],
+	replace(replace([manufacturer],char(10),';'),'`',',')  as  [manufacturermanufacturer],
+	replace(replace([model],char(10),';'),'`',',')  as  [model],
+	
+	[numberofcpu] ,
+
+	replace(replace([cpumodel],char(10),';'),'`',',')  as  [cpuspeed],
+	replace(replace([ramslot1],char(10),';'),'`',',')  as  [ramslot1],
+	replace(replace([ramslot2],char(10),';'),'`',',')  as  [ramslot2],
+	replace(replace([ramslot3],char(10),';'),'`',',')  as  [ramslot3],
+	replace(replace([ramslot4],char(10),';'),'`',',')  as  [ramslot4],
+	replace(replace([HDtype],char(10),';'),'`',',')  as  [HDtype],
+	
+	[numberofHD]  ,
+	[HDsize]  ,
+	[casesize]  ,
+	[numberofeth]  ,
+	[powersupply]  ,
+
+	replace(replace([operatingsystem],char(10),';'),'`',',')  as  [operatingsystem],
+	replace(replace(replace([notes],char(10),';'),char(13),';'),'`',',')  as  [notes],
+
+	[monitored]  ,
+
+	replace(replace([rackno],char(10),';'),'`',',')  as  [rackno],
+	replace(replace([fiberport],char(10),';'),'`',',')  as  [fiberport],
+	replace(replace([wwn],char(10),';'),'`',',')  as  [wwn],
+	replace(replace([fiberswitch],char(10),';'),'`',',')  as  [fiberswitch],
+	
+	[rackposition]  ,
+
+	
+	replace(replace([vendor],char(10),';'),'`',',')  as  [vendor],
+	replace(replace([orderno],char(10),';'),'`',',')  as  [orderno],
+	replace(replace([type],char(10),';'),'`',',')  as  [type],
+	replace(replace([mac01],char(10),';'),'`',',')  as  [mac01],
+	replace(replace([mac02],char(10),';'),'`',',')  as  [mac02],
+	replace(replace([macilo],char(10),';'),'`',',')  as  [macilo],
+	
+	[maintenance_agreement_id]  ,
+	[removed] ,
+
+	replace(replace([facility],char(10),';'),'`',',')  as  [facility],
+	
+	[destroy_me] ,
+	[leased] ,
+	[infrastructure] ,
+	[memory] ,
+	[asset_class] ,
+                   convert(varchar(25), getdate(), 120) as rec_datetime_stamp
+  FROM [HostOps].[dbo].[mediatempleMachine]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dump the data to the HDFS file\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{E21EDABD-D92B-444C-B6CF-8AFF6E2F2E71}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[bi01.lax01.mtsvc.net.HostOps.biadmin]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[machineID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[machineID]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[machineID]"
+                      name="machineID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[serialID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[serialID]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[serialID]"
+                      name="serialID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[switch]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[switch]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[switch]"
+                      name="switch"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[port]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[port]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[port]"
+                      name="port"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pdu]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pdu]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pdu]"
+                      name="pdu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pduport]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pduport]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[pduport]"
+                      name="pduport"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[company]"
+                      name="company"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[manufacturermanufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[manufacturermanufacturer]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[manufacturermanufacturer]"
+                      name="manufacturermanufacturer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[model]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]"
+                      name="model"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[numberofcpu]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[numberofcpu]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[numberofcpu]"
+                      name="numberofcpu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[cpuspeed]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cpuspeed]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[cpuspeed]"
+                      name="cpuspeed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ramslot1]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot1]"
+                      name="ramslot1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ramslot2]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot2]"
+                      name="ramslot2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ramslot3]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot3]"
+                      name="ramslot3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ramslot4]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[ramslot4]"
+                      name="ramslot4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[HDtype]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HDtype]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[HDtype]"
+                      name="HDtype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[numberofHD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[numberofHD]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[numberofHD]"
+                      name="numberofHD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[HDsize]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HDsize]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[HDsize]"
+                      name="HDsize"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[casesize]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[casesize]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[casesize]"
+                      name="casesize"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[numberofeth]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[numberofeth]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[numberofeth]"
+                      name="numberofeth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[powersupply]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[powersupply]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[powersupply]"
+                      name="powersupply"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[operatingsystem]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[operatingsystem]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[operatingsystem]"
+                      name="operatingsystem"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[notes]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[notes]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[notes]"
+                      name="notes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[monitored]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[monitored]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[monitored]"
+                      name="monitored"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rackno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rackno]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rackno]"
+                      name="rackno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[fiberport]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fiberport]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[fiberport]"
+                      name="fiberport"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[wwn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wwn]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[wwn]"
+                      name="wwn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[fiberswitch]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fiberswitch]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[fiberswitch]"
+                      name="fiberswitch"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rackposition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rackposition]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rackposition]"
+                      name="rackposition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[vendor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vendor]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[vendor]"
+                      name="vendor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[orderno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[orderno]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[orderno]"
+                      name="orderno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[type]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[type]"
+                      name="type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac01]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mac01]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac01]"
+                      name="mac01"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac02]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mac02]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac02]"
+                      name="mac02"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[macilo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[macilo]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[macilo]"
+                      name="macilo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[maintenance_agreement_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[maintenance_agreement_id]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[maintenance_agreement_id]"
+                      name="maintenance_agreement_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[removed]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[removed]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[removed]"
+                      name="removed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[facility]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[facility]"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[facility]"
+                      name="facility"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[destroy_me]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[destroy_me]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[destroy_me]"
+                      name="destroy_me"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[leased]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[leased]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[leased]"
+                      name="leased"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[infrastructure]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[infrastructure]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[infrastructure]"
+                      name="infrastructure"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[memory]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[memory]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[memory]"
+                      name="memory"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[asset_class]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[asset_class]"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[asset_class]"
+                      name="asset_class"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_datetime_stamp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rec_datetime_stamp]"
+                      length="25"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].Columns[rec_datetime_stamp]"
+                      name="rec_datetime_stamp"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[machineID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="machineID" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[serialID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="serialID" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[switch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="switch" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[port]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="port" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pdu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="pdu" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pduport]"
+                      dataType="i4"
+                      name="pduport" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[manufacturermanufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="manufacturermanufacturer" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="model" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[numberofcpu]"
+                      dataType="i4"
+                      name="numberofcpu" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cpuspeed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="cpuspeed" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ramslot1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="ramslot1" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ramslot2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="ramslot2" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ramslot3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="ramslot3" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ramslot4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="ramslot4" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HDtype]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="HDtype" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[numberofHD]"
+                      dataType="i4"
+                      name="numberofHD" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HDsize]"
+                      dataType="i4"
+                      name="HDsize" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[casesize]"
+                      dataType="i4"
+                      name="casesize" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[numberofeth]"
+                      dataType="i4"
+                      name="numberofeth" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[powersupply]"
+                      dataType="i4"
+                      name="powersupply" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[operatingsystem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="operatingsystem" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[notes]"
+                      codePage="1252"
+                      dataType="text"
+                      name="notes" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[monitored]"
+                      dataType="i4"
+                      name="monitored" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rackno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="rackno" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fiberport]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="fiberport" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wwn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="wwn" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fiberswitch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="fiberswitch" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rackposition]"
+                      dataType="i4"
+                      name="rackposition" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vendor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="vendor" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[orderno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="orderno" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mac01]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="mac01" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mac02]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="mac02" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[macilo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="macilo" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[maintenance_agreement_id]"
+                      dataType="i4"
+                      name="maintenance_agreement_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[removed]"
+                      dataType="i4"
+                      name="removed" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[facility]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="facility" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[destroy_me]"
+                      dataType="i4"
+                      name="destroy_me" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[leased]"
+                      dataType="i4"
+                      name="leased" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[infrastructure]"
+                      dataType="i4"
+                      name="infrastructure" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[memory]"
+                      dataType="i4"
+                      name="memory" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[asset_class]"
+                      dataType="i4"
+                      name="asset_class" />
+                    <externalMetadataColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rec_datetime_stamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="rec_datetime_stamp" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[machineID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[machineID]"
+                      name="machineID" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[serialID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[serialID]"
+                      name="serialID" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[switch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[switch]"
+                      name="switch" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[port]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[port]"
+                      name="port" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pdu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pdu]"
+                      name="pdu" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pduport]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pduport]"
+                      name="pduport" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[company]"
+                      name="company" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[manufacturermanufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[manufacturermanufacturer]"
+                      name="manufacturermanufacturer" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[model]"
+                      name="model" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[numberofcpu]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[numberofcpu]"
+                      name="numberofcpu" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cpuspeed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cpuspeed]"
+                      name="cpuspeed" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ramslot1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ramslot1]"
+                      name="ramslot1" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ramslot2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ramslot2]"
+                      name="ramslot2" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ramslot3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ramslot3]"
+                      name="ramslot3" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ramslot4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ramslot4]"
+                      name="ramslot4" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HDtype]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HDtype]"
+                      name="HDtype" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[numberofHD]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[numberofHD]"
+                      name="numberofHD" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HDsize]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HDsize]"
+                      name="HDsize" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[casesize]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[casesize]"
+                      name="casesize" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[numberofeth]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[numberofeth]"
+                      name="numberofeth" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[powersupply]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[powersupply]"
+                      name="powersupply" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[operatingsystem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[operatingsystem]"
+                      name="operatingsystem" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[notes]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[notes]"
+                      name="notes" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[monitored]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[monitored]"
+                      name="monitored" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rackno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rackno]"
+                      name="rackno" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fiberport]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fiberport]"
+                      name="fiberport" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wwn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wwn]"
+                      name="wwn" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fiberswitch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fiberswitch]"
+                      name="fiberswitch" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rackposition]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rackposition]"
+                      name="rackposition" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vendor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vendor]"
+                      name="vendor" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[orderno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[orderno]"
+                      name="orderno" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[type]"
+                      name="type" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mac01]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mac01]"
+                      name="mac01" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mac02]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mac02]"
+                      name="mac02" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[macilo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[macilo]"
+                      name="macilo" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[maintenance_agreement_id]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[maintenance_agreement_id]"
+                      name="maintenance_agreement_id" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[removed]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[removed]"
+                      name="removed" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[facility]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[facility]"
+                      name="facility" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[destroy_me]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[destroy_me]"
+                      name="destroy_me" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[leased]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[leased]"
+                      name="leased" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[infrastructure]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[infrastructure]"
+                      name="infrastructure" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[memory]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[memory]"
+                      name="memory" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[asset_class]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[asset_class]"
+                      name="asset_class" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rec_datetime_stamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rec_datetime_stamp]"
+                      name="rec_datetime_stamp" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dump the data to the HDFS file.Paths[Data Conversion Output]"
+              endId="Package\Dump the data to the HDFS file\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Dump the data to the HDFS file\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Dump the data to the HDFS file.Paths[OLE DB Source Output]"
+              endId="Package\Dump the data to the HDFS file\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dump the data to the HDFS file\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move the HDFS Data File to archive"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{ad282022-4a17-4a11-9145-3b9915a09466}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move the HDFS Data File to archive"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{A14C50CE-BE68-4FEA-9B01-CB296DFF1E4E}"
+          TaskDestinationPath="{17728F87-8B9B-40AC-BF74-9CAC4EC1A56D}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove the Source File"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{9a5dfb4f-dd6f-42c9-be09-097b08914a10}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove the Source File"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{06BAEEE2-EEF5-42CC-9CB9-3F50403EDBF0}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove the Source File  - IN"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{c8903a39-aef7-4f8c-bf36-c7c0b8e96114}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove the Source File  - IN"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{0F18CF5F-E25C-484B-BCA9-616E406B3539}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove the Zipped Data"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{071c9fb2-29d5-4e02-b952-525cf45a3b6d}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove the Zipped Data"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{A14C50CE-BE68-4FEA-9B01-CB296DFF1E4E}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Script Task - UTF8"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{A9CBA7A0-4C9E-410A-A140-1180114AF204}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Script Task - UTF8"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_78ee1ae200ad47beacb2583233dfd67f"
+          VSTAMajorVersion="3"
+          VSTAMinorVersion="0"
+          Language="CSharp">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Text;
+using System.IO;
+#endregion
+
+namespace ST_78ee1ae200ad47beacb2583233dfd67f
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            string fileIn = @"C:\HDFS_Stage\data\mediatempleMachine_In.txt";
+            string fileOut = @"C:\HDFS_Stage\data\mediatempleMachine.txt";
+
+            Encoding utf8WithoutBom = new System.Text.UTF8Encoding(false);
+            Encoding un1 = new System.Text.UnicodeEncoding();
+
+            try
+            {
+                using (StreamReader sR = new StreamReader(fileIn, un1))
+                {
+                    using (StreamWriter sW = new StreamWriter(fileOut, false, utf8WithoutBom))
+                    {
+
+                        while (sR.Peek() != -1) // stops when it reachs the end of the file
+                        {
+                            sW.WriteLine(sR.ReadLine()); // writing the edited line as a new line in the new.txt file
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Dts.Events.FireError(0, null,
+                string.Format("Error {0} in UF8 Task Script using file: {1}", e, fileIn), null, 0);
+                Dts.TaskResult = (int)DTSExecResult.Failure;
+            }
+
+			Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ST_78ee1ae200ad47beacb2583233dfd67f.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{573e2902-564e-41ca-9d54-fa1038c5bf40}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_78ee1ae200ad47beacb2583233dfd67f</RootNamespace>
+    <AssemblyName>ST_78ee1ae200ad47beacb2583233dfd67f</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+         <Generator>ResXFileCodeGenerator</Generator>
+         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+             <AutoGen>True</AutoGen>
+         <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+         <Generator>SettingsSingleFileGenerator</Generator>
+         <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+         <AutoGen>True</AutoGen>
+         <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+         <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask"
+                           HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}"
+                           ApplicationType="usd"
+                           Language="cs"
+                           TemplatesPath=""
+                           DebugInfoExeName="#HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\InstallDir#\devenv.exe"
+                           DebugInfoCommandLine=""
+                           DebugInfoWorkingDir=""
+                           IconImageList=""/>
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex="">
+        </Host>
+        <ProjectClient>
+            <HostIdentifier>SSIS_ST120</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:Language>msBuild</msb:Language>
+		<msb:CodeName>ST_78ee1ae200ad47beacb2583233dfd67f</msb:CodeName>
+		<msb:DisplayName>ST_78ee1ae200ad47beacb2583233dfd67f</msb:DisplayName>
+		<msb:ProjectId>{062F4CD9-4283-4A06-B7D8-2986DF97DA4E}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="ST_78ee1ae200ad47beacb2583233dfd67f.csproj"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="ScriptMain.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Settings.get_Default():ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Sett" +
+    "ings")]
+
+namespace ST_78ee1ae200ad47beacb2583233dfd67f.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_78ee1ae200ad47beacb2583233dfd67f")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_78ee1ae200ad47beacb2583233dfd67f")]
+[assembly: AssemblyCopyright("Copyright @  2016")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_78ee1ae200ad47beacb2583233dfd67f.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_78ee1ae200ad47beacb2583233dfd67f.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_78ee1ae200ad47beacb2583233dfd67f.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAOyg4FYAAAAAAAAAAOAAAiELAQsAABIAAAAIAAAAAAAATjAA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAPQvAABXAAAAAEAAAAgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAVBAAAAAgAAAAEgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAAgEAAAAQAAAAAYAAAAUAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAw
+MAAAAAAAAEgAAAACAAUAWCIAAJwNAAABAAAAAAAAAKAhAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKA4AAAoqEzACAC0AAAABAAARfgEAAAQtIHIBAABw0AIA
+AAIoDwAACm8QAAAKcxEAAAoKBoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKi5zBgAA
+BoADAAAEKh4CKBQAAAoqABswBgCjAAAAAgAAEXJzAABwCnLNAABwCxZzFgAACgxzFwAACg0GCXMY
+AAAKEwQHFghzGQAAChMFKw4RBREEbxoAAApvGwAAChEEbxwAAAoVM+jeDBEFLAcRBW8dAAAK3N4M
+EQQsBxEEbx0AAArc3jITBgIoHgAACm8fAAAKFhRyIQEAcBEGBiggAAAKFBZvIQAACiYCKB4AAAoX
+byIAAAreAAIoHgAAChZvIgAACioAASgAAAIALAAcSAAMAAAAAAIAIgA0VgAMAAAAAAAAGQBLZAAy
+JgAAAR4CKCMAAAoqAAAAALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJj
+ZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJs
+aWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291
+cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAA
+AAAFAGwAAAAMBAAAI34AAHgEAAAMBgAAI1N0cmluZ3MAAAAAhAoAAHwBAAAjVVMAAAwAABAAAAAj
+R1VJRAAAABAMAACMAQAAI0Jsb2IAAAAAAAAAAgAAAVcdogEJAwAAAPolMwAWAAABAAAAJgAAAAUA
+AAAGAAAACQAAAAEAAAAjAAAAAgAAAA8AAAACAAAAAgAAAAMAAAAEAAAAAQAAAAMAAAABAAAAAQAA
+AAAACgABAAAAAAAGAMEAugAKAN0AyAAOAD0BFAEGAFkBugAGAG8BXgEGAKABiwEGAFcCPQIGAIIC
+cAIGAJkCcAIGALYCcAIGANUCcAIGAO4CcAIGAAcDcAIGACIDcAIGAD0DcAIGAFYDcAIGAI8DbwMG
+AK8DbwMGAOADzQMGAP0DugAGAAIEugAGACYEcAIKAFIEPAQKAGsEPAQGAIAEbwMOAKIEFAEGANAE
+xAQGAN0ExAQGAPcE7QQGAAQFxAQGAA0F7QQGABoF7QQGAC4F7QQGAEgFugAOAFwFFAEOAHYFFAEG
+AJUFugAGALwFugAAAAAAAQAAAAAAAQABAAAAEAAyADwABQABAAEAAAEQAGsAPAAJAAMABQABABAA
+dAB/AA0ABAAIAAMBAACjAAAAEQAEAAoAEQB/ARMAEQCsARcAEQD2ATkABgYfAkcAVoAnAkoAVoAv
+AkoAUCAAAAAAgxi8ARsAAQBYIAAAAACTCMIBHwABAJEgAAAAAJMI1gEkAAEAmCAAAAAAkwjiASkA
+AQCgIAAAAACWCAYCPQACALMgAAAAAIYYvAEbAAIApyAAAAAAkRibBIkAAgC8IAAAAACGABoCGwAC
+AJQhAAAAAIYYvAEbAAIAAAABADcCOQC8AVgAQQC8AVgASQC8AVgAUQC8AVgAWQC8AVgAYQC8AVgA
+aQC8AVgAcQC8AVgAeQC8AVgAgQC8AVgAiQC8AV0AkQC8ARsAmQC8ARsACQC8ARsAoQAUBGIAoQAv
+BGkAKQC8AW4AuQC8AXoAyQC8ARsAEQC8ARsA0QC8ARsA2QC8AY0A4QC8ARsA6QC8AZIA+QC8AZkA
+AQElBaEACQE5BVgAAQFDBaUAEQFUBRsAGQBuBakAGQGKBa8AKQGcBbUAIQGjBbwAGQGtBV0AGQC8
+ARsACAAUAE4ACAAYAFMAKQCTAIAALgAbAEYBLgAjAEYBLgBjAGwBLgALANUALgATAB0BLgAzAB0B
+LgArAEYBLgA7AEwBLgBDAEYBLgBbAGMBQwBrAFMASQCTAIAAYQCbAFMAgwCrAFMAdQDFAAIAAQAD
+AAMAAABvAS8AAADuATQAAAASAkIAAgACAAMAAgADAAUAAQAEAAUAAgAFAAcABIAAAAEAAAAYF3Zk
+AAAAAAAAfwAAAAQAAAAAAAAAAAAAAAEAsQAAAAAABAAAAAAAAAAAAAAAAQC6AAAAAAAMAAAAAAAA
+AAAAAAAKAPUAAAAAAAAAAAABAAAAxgUAAAUABAAAAAAAADxNb2R1bGU+AFNUXzc4ZWUxYWUyMDBh
+ZDQ3YmVhY2IyNTgzMjMzZGZkNjdmLmRsbABSZXNvdXJjZXMAU1RfNzhlZTFhZTIwMGFkNDdiZWFj
+YjI1ODMyMzNkZmQ2N2YuUHJvcGVydGllcwBTZXR0aW5ncwBTY3JpcHRNYWluAFNUXzc4ZWUxYWUy
+MDBhZDQ3YmVhY2IyNTgzMjMzZGZkNjdmAFNjcmlwdFJlc3VsdHMAbXNjb3JsaWIAU3lzdGVtAE9i
+amVjdABTeXN0ZW0uQ29uZmlndXJhdGlvbgBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBNaWNyb3Nv
+ZnQuU3FsU2VydmVyLlNjcmlwdFRhc2sATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuVGFza3MuU2Ny
+aXB0VGFzawBWU1RBUlRTY3JpcHRPYmplY3RNb2RlbEJhc2UARW51bQBTeXN0ZW0uUmVzb3VyY2Vz
+AFJlc291cmNlTWFuYWdlcgByZXNvdXJjZU1hbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBDdWx0dXJl
+SW5mbwByZXNvdXJjZUN1bHR1cmUALmN0b3IAZ2V0X1Jlc291cmNlTWFuYWdlcgBnZXRfQ3VsdHVy
+ZQBzZXRfQ3VsdHVyZQBDdWx0dXJlAGRlZmF1bHRJbnN0YW5jZQBnZXRfRGVmYXVsdABEZWZhdWx0
+AE1haW4AdmFsdWVfXwBTdWNjZXNzAEZhaWx1cmUAdmFsdWUAU3lzdGVtLlJ1bnRpbWUuVmVyc2lv
+bmluZwBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUAU3lzdGVtLlJlZmxlY3Rpb24AQXNzZW1ibHlU
+aXRsZUF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAEFzc2VtYmx5Q29uZmln
+dXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0
+QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0
+cmlidXRlAEFzc2VtYmx5Q3VsdHVyZUF0dHJpYnV0ZQBBc3NlbWJseVZlcnNpb25BdHRyaWJ1dGUA
+U3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0
+cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAFN5c3RlbS5EaWFnbm9zdGljcwBE
+ZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAFR5cGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlw
+ZUZyb21IYW5kbGUAQXNzZW1ibHkAZ2V0X0Fzc2VtYmx5AFN5c3RlbS5Db21wb25lbnRNb2RlbABF
+ZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5l
+cmF0ZWRBdHRyaWJ1dGUALmNjdG9yAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBT
+eXN0ZW0uVGV4dABVVEY4RW5jb2RpbmcAVW5pY29kZUVuY29kaW5nAFN5c3RlbS5JTwBTdHJlYW1S
+ZWFkZXIARW5jb2RpbmcAU3RyZWFtV3JpdGVyAFRleHRSZWFkZXIAUmVhZExpbmUAVGV4dFdyaXRl
+cgBXcml0ZUxpbmUAUGVlawBJRGlzcG9zYWJsZQBEaXNwb3NlAFNjcmlwdE9iamVjdE1vZGVsAGdl
+dF9EdHMARXZlbnRzT2JqZWN0V3JhcHBlcgBnZXRfRXZlbnRzAFN0cmluZwBGb3JtYXQARmlyZUVy
+cm9yAHNldF9UYXNrUmVzdWx0AEV4Y2VwdGlvbgBTVF83OGVlMWFlMjAwYWQ0N2JlYWNiMjU4MzIz
+M2RmZDY3Zi5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMAAAAAAHFTAFQAXwA3ADgAZQBl
+ADEAYQBlADIAMAAwAGEAZAA0ADcAYgBlAGEAYwBiADIANQA4ADMAMgAzADMAZABmAGQANgA3AGYA
+LgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAFlDADoAXABIAEQARgBT
+AF8AUwB0AGEAZwBlAFwAZABhAHQAYQBcAG0AZQBkAGkAYQB0AGUAbQBwAGwAZQBNAGEAYwBoAGkA
+bgBlAF8ASQBuAC4AdAB4AHQAAFNDADoAXABIAEQARgBTAF8AUwB0AGEAZwBlAFwAZABhAHQAYQBc
+AG0AZQBkAGkAYQB0AGUAbQBwAGwAZQBNAGEAYwBoAGkAbgBlAC4AdAB4AHQAAFlFAHIAcgBvAHIA
+IAB7ADAAfQAgAGkAbgAgAFUARgA4ACAAVABhAHMAawAgAFMAYwByAGkAcAB0ACAAdQBzAGkAbgBn
+ACAAZgBpAGwAZQA6ACAAewAxAH0AAAAV4fsy9XnqRIinB5pFq7A8AAi3elxWGTTgiQiJhF3NgIDM
+kQMGEhUDBhIZAyAAAQQAABIVBAAAEhkFAAEBEhkECAASFQQIABIZAwYSDAQAABIMBAgAEgwCBggD
+BhEUBAAAAAAEAQAAAAQgAQEOBCABAQgGAAESURFVBCAAElkGIAIBDhJZBAcBEhUFIAEBEWEIAQAC
+AAAAAAADAAABBCABAQIGIAIBDhJ5ByADAQ4CEnkDIAAOAyAACAUgABKAjQUgABKAkQYAAw4OHBwI
+IAUCCA4ODggPBwcODhJ5EnkSdRJ9EoCZRwEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC4wAQBU
+DhRGcmFtZXdvcmtEaXNwbGF5TmFtZRAuTkVUIEZyYW1ld29yayA0KAEAI1NUXzc4ZWUxYWUyMDBh
+ZDQ3YmVhY2IyNTgzMjMzZGZkNjdmAAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMTYAAAgBAAgA
+AAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEAHDAAAAAAAAAAAAAAPjAAAAAgAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAADAwAAAAAAAAAAAAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2Nv
+cmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAEAEAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAA
+AEgAAABYQAAAsAMAAAAAAAAAAAAAsAM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8A
+AAAAAL0E7/4AAAEAAAABAHZkGBcAAAEAdmQYFz8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABE
+AAAAAQBWAGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8A
+bgAAAAAAAACwBBADAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAOwCAAABADAAMAAw
+ADAAMAA0AGIAMAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAFQA
+XwA3ADgAZQBlADEAYQBlADIAMAAwAGEAZAA0ADcAYgBlAGEAYwBiADIANQA4ADMAMgAzADMAZABm
+AGQANgA3AGYAAABAAA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4ANQA5ADEA
+MgAuADIANQA3ADEAOAAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAFQAXwA3
+ADgAZQBlADEAYQBlADIAMAAwAGEAZAA0ADcAYgBlAGEAYwBiADIANQA4ADMAMgAzADMAZABmAGQA
+NgA3AGYALgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBw
+AHkAcgBpAGcAaAB0ACAAQAAgACAAMgAwADEANgAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkA
+bABlAG4AYQBtAGUAAABTAFQAXwA3ADgAZQBlADEAYQBlADIAMAAwAGEAZAA0ADcAYgBlAGEAYwBi
+ADIANQA4ADMAMgAzADMAZABmAGQANgA3AGYALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQA
+TgBhAG0AZQAAAAAAUwBUAF8ANwA4AGUAZQAxAGEAZQAyADAAMABhAGQANAA3AGIAZQBhAGMAYgAy
+ADUAOAAzADIAMwAzAGQAZgBkADYANwBmAAAARAAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkA
+bwBuAAAAMQAuADAALgA1ADkAMQAyAC4AMgA1ADcAMQA4AAAAAABIAA8AAQBBAHMAcwBlAG0AYgBs
+AHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgA1ADkAMQAyAC4AMgA1ADcAMQA4AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAAFAwAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Zip"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute GaTraffic"
+      DTS:DTSID="{873fc8e7-c647-4a27-a690-05aa7d260db1}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Zip"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>HDFS_Zip.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>var_hdfs_data_file_name</ParameterName>
+            <BindedVariableOrParameterName>User::var_hdfs_data_file_name</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>var_split</ParameterName>
+            <BindedVariableOrParameterName>User::var_split</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0BDCFC48-5258-4A2D-B335-B19CA703481A}"
+      DTS:From="Package\Dump the data to the HDFS file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Script Task - UTF8" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{40FEA851-AA4E-4A13-BB02-B77DF2BD2548}"
+      DTS:From="Package\Script Task - UTF8"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Zip" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{5EB0CE28-0DE5-4D7A-ACBF-5F627E1B4E6A}"
+      DTS:From="Package\Remove the Zipped Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Dump the data to the HDFS file" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{A5AA9842-691C-43F5-B772-D087E0A192E0}"
+      DTS:From="Package\Zip"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Move the HDFS Data File to archive" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{AF733394-CB20-418A-B4E3-7026C7EC4DFD}"
+      DTS:From="Package\Remove the Source File  - IN"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Remove the Source File" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{DC35E870-5573-4B35-84AE-3EEFA1BB5D36}"
+      DTS:From="Package\Remove the Source File"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Remove the Zipped Data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Dump the data to the HDFS file"
+          TopLeft="177,182" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\Move the HDFS Data File to archive"
+          TopLeft="178,296" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Remove the Source File"
+          TopLeft="493,110" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Remove the Source File  - IN"
+          TopLeft="493,29" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Remove the Zipped Data"
+          TopLeft="178,110" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Script Task - UTF8"
+          TopLeft="518,182" />
+        <NodeLayout
+          Size="93,42"
+          Id="Package\Zip"
+          TopLeft="531,274" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="404,203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114,0"
+              Start="0,0"
+              End="106.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="106.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="601,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.5,50"
+              Start="0,0"
+              End="-23.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-19.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,25"
+                    Point2="-23.5,25"
+                    Point3="-23.5,29" />
+                  <mssgle:LineSegment
+                    End="-23.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="276,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.5,30"
+              Start="0,0"
+              End="14.5,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="10.5,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,15"
+                    Point2="14.5,15"
+                    Point3="14.5,19" />
+                  <mssgle:LineSegment
+                    End="14.5,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="531,295">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-107,22"
+              Start="0,0"
+              End="-99.5,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-49.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-49.5,0"
+                    Point2="-53.5,0"
+                    Point3="-53.5,4" />
+                  <mssgle:LineSegment
+                    End="-53.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-53.5,18"
+                    Point2="-53.5,22"
+                    Point3="-57.5,22" />
+                  <mssgle:LineSegment
+                    End="-99.5,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="589,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="493,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-119,0"
+              Start="0,0"
+              End="-111.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-111.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Dump the data to the HDFS file">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Dump the data to the HDFS file\Flat File Destination"
+          TopLeft="220,284" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Dump the data to the HDFS file\Data Conversion"
+          TopLeft="233,168" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Dump the data to the HDFS file\OLE DB Source"
+          TopLeft="228,65" />
+        <EdgeLayout
+          Id="Package\Dump the data to the HDFS file.Paths[OLE DB Source Output]"
+          TopLeft="303,107">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,61"
+              Start="0,0"
+              End="8,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="4,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,30.5"
+                    Point2="8,30.5"
+                    Point3="8,34.5" />
+                  <mssgle:LineSegment
+                    End="8,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dump the data to the HDFS file.Paths[Data Conversion Output]"
+          TopLeft="308.5,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dump the data to the HDFS file\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
